@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Confirmation - The Healthy Bear Cafe</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#3d4a3e",
+                        "on-tertiary-container": "#444546",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#1b1b1b",
+                        "surface-bright": "#fbf9f8",
+                        "surface-container-high": "#e9e8e7",
+                        "on-secondary-container": "#646464",
+                        "inverse-primary": "#4ae183",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#303031",
+                        "surface-variant": "#e4e2e2",
+                        "on-surface": "#1b1c1c",
+                        "secondary-fixed-dim": "#c6c6c6",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1b1c1c",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface-container": "#efeded",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#e2e2e2",
+                        "surface-container-highest": "#e4e2e2",
+                        "surface": "#fbf9f8",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#005228",
+                        "primary-container": "#2ecc71",
+                        "surface-tint": "#006d37",
+                        "error": "#ba1a1a",
+                        "tertiary": "#5d5f5f",
+                        "tertiary-container": "#b2b3b3",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#00210c",
+                        "background": "#fbf9f8",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "primary-fixed": "#6bfe9c",
+                        "primary": "#006d37",
+                        "primary-fixed-dim": "#4ae183",
+                        "secondary-container": "#e2e2e2",
+                        "secondary": "#5e5e5e",
+                        "outline": "#6c7b6d",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-primary-container": "#005027",
+                        "surface-dim": "#dbdad9",
+                        "outline-variant": "#bbcbbb",
+                        "on-secondary-fixed-variant": "#474747",
+                        "surface-container-low": "#f5f3f3",
+                        "tertiary-fixed": "#e2e2e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "48px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "xs": "4px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "display-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-bold": ["12px", { "lineHeight": "16px", "fontWeight": "700" }],
+                        "display-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen font-body-lg flex flex-col md:max-w-[1200px] md:mx-auto">
+<!-- Header (Suppressed navigation, showing close intent) -->
+<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-14 bg-surface border-b border-outline-variant">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[24px]">restaurant_menu</span>
+<span class="text-headline-sm-mobile md:text-headline-sm font-headline-sm font-bold text-primary">The Healthy Bear Cafe</span>
+</div>
+<button class="p-xs rounded-full hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</header>
+<main class="flex-grow flex flex-col items-center px-margin-mobile md:px-margin-desktop py-xl md:py-20">
+<!-- Success Animation/Icon Area -->
+<div class="w-24 h-24 rounded-full bg-primary-container flex items-center justify-center mb-lg">
+<span class="material-symbols-outlined text-primary text-[48px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h1 class="text-display-lg-mobile md:text-display-lg font-display-lg-mobile md:font-display-lg text-center mb-xs">Order Received!</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant mb-xl text-center">Thank you for your order. We're getting it ready.</p>
+<!-- Order Summary Card -->
+<div class="w-full max-w-md bg-surface-container-lowest border border-outline-variant rounded-xl p-lg mb-xl shadow-sm">
+<div class="flex justify-between items-center border-b border-outline-variant pb-md mb-md">
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Order Number</span>
+<span class="text-headline-sm font-headline-sm text-on-surface">#HB-1024</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Est. Pickup</span>
+<span class="text-headline-sm font-headline-sm text-primary">15 mins</span>
+</div>
+</div>
+<!-- Progress Tracker -->
+<div class="relative py-md">
+<div class="absolute left-[15px] top-md bottom-md w-[2px] bg-surface-variant rounded-full -z-10"></div>
+<!-- Step 1: Active/Completed -->
+<div class="flex items-center gap-md mb-lg">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center z-10 shrink-0">
+<span class="material-symbols-outlined text-on-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">done</span>
+</div>
+<div class="flex flex-col">
+<span class="text-body-lg font-body-lg font-bold text-on-surface">Order Placed</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">We've received your order.</span>
+</div>
+</div>
+<!-- Step 2: Current -->
+<div class="flex items-center gap-md mb-lg">
+<div class="w-8 h-8 rounded-full border-2 border-primary bg-surface flex items-center justify-center z-10 shrink-0">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+</div>
+<div class="flex flex-col">
+<span class="text-body-lg font-body-lg font-bold text-primary">Preparing</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Your food is being made.</span>
+</div>
+</div>
+<!-- Step 3: Pending -->
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-full border-2 border-outline-variant bg-surface flex items-center justify-center z-10 shrink-0">
+<span class="material-symbols-outlined text-outline-variant text-[18px]">shopping_bag</span>
+</div>
+<div class="flex flex-col">
+<span class="text-body-lg font-body-lg text-on-surface-variant">Ready for Pickup</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Head to the counter soon.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full max-w-md h-12 bg-surface border border-on-surface text-on-surface rounded-DEFAULT text-label-bold font-label-bold flex items-center justify-center hover:bg-surface-container-high transition-colors">
+            Back to Menu
+        </button>
+</main>
+</body></html>

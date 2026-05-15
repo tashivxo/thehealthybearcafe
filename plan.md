@@ -1,3 +1,32 @@
+## 0. Agent Skills Reference
+
+> **Read this section first.** Any agent implementing this plan must follow both skills below.
+
+### 0.1 `frontend-design` — Design Constraints for This Project
+
+This skill normally recommends avoiding Inter and generic fonts. **Exception here:** Inter is mandated by the Ursine Fresh design system — use it. All other guidance applies:
+
+- Honour every Ursine Fresh token (§2) exactly — no approximations, no new colours
+- CSS-first animations for all micro-interactions (§8); JS only where state is required
+- Production-grade, fully functional code — no placeholders, no lorem ipsum
+- When adapting Stitch exports: keep their Tailwind config block intact; only add/modify JS and wire-up logic
+- Bold, intentional aesthetic already established by Stitch — do not redesign, only polish and wire
+
+### 0.2 `preview-dev` — Static HTML Preview Workflow
+
+For this project the stack is **plain HTML + Tailwind CDN**. No server, no build step.
+
+- Serve from the `thehealthybearcafe/` directory: `preview_serve(dir="thehealthybearcafe")` — no `command` or `port` needed for static HTML
+- After `preview_serve` resolves: **check `health_check.ok` before reporting success**
+  - `directory_listing` → `index.html` missing; create it
+  - `blank_page` → JS error or CDN blocked; read the file, fix in place
+  - `404` on resources → path is absolute; change `/path` → `./path`
+- Fix bugs **in the existing file** (`edit_file`) — never create a parallel replacement file
+- Restart: `preview_stop(old_id)` then `preview_serve` with the same dir
+- Use relative paths everywhere (`./js/cart.js`, `./images/bear-logo.svg`) — absolute paths break `file://` opens too
+
+---
+
 # The Healthy Bear Cafe — Frontend Implementation Plan
 
 > **Design system:** Ursine Fresh  
@@ -106,14 +135,17 @@ The design system avoids heavy shadows. Only two shadow levels are used:
 
 ### 3.1 Screen List
 
+> **Stitch export base folder:**
+> `c:\Users\tashi\Downloads\stitch_modern_canteen_ordering_platform (1)\stitch_modern_canteen_ordering_platform\`
+
 | # | Screen Name | File | Dimensions | Status |
 |---|---|---|---|---|
-| 1 | Menu — Card View | `menu-card.html` | 780×3710 | 🔲 To build |
-| 2 | Menu — List View | `menu-list.html` | 780×2856 | 🔲 To build |
-| 3 | Checkout — Order Summary | `checkout.html` | 780×1768 | ✅ Exported (`code.html`) |
-| 4 | Order Status — Track Your Meal | `order-status.html` | 780×1768 | 🔲 To build |
+| 1 | Menu — Card View | `menu-card.html` | 780×3710 | ✅ Exported — adapt `stitch.../menu_the_healthy_bear_cafe/code.html` |
+| 2 | Menu — List View | `menu-list.html` | 780×2856 | 🔲 Build from scratch — `stitch.../menu_list_view/screen.png` reference only |
+| 3 | Checkout — Order Summary | `checkout.html` | 780×1768 | ✅ Exported — already in repo as `code.html` |
+| 4 | Order Status — Track Your Meal | `order-status.html` | 780×1768 | ✅ Exported — adapt `stitch.../order_status_track_your_meal/code.html` |
 
-> Reference images (WhatsApp screenshots, 1200×1600) show the original design intent and should be used when reconstructing screens not yet exported.
+> Reference images (WhatsApp screenshots, 1200×1600) are in `stitch.../whatsapp_image_2026_05_15_at_10.21.25.jpeg/` and `stitch.../whatsapp_image_2026_05_15_at_10.21.26.jpeg/` — use for Screen 2 and any ambiguous detail.
 
 ### 3.2 User Flow
 
@@ -235,16 +267,16 @@ A single `tailwind.config` object defined in `js/tailwind-config.js` will be inj
 thehealthybearcafe/
 ├── plan.md                       ← This document
 ├── DESIGN.md                     ← Ursine Fresh design system spec (from Stitch)
-├── screen.png                    ← Checkout reference screenshot
+├── code.html                     ← Original Stitch checkout export (rename → checkout.html)
 │
 ├── index.html                    ← Redirects to menu-card.html (entry point)
-├── menu-card.html                ← Screen 1: Menu card grid view
-├── menu-list.html                ← Screen 2: Menu list view
-├── checkout.html                 ← Screen 3: Checkout (rename from code.html)
-├── order-status.html             ← Screen 4: Order status tracker
+├── menu-card.html                ← Screen 1: Menu card grid view  (adapted from Stitch export)
+├── menu-list.html                ← Screen 2: Menu list view       (built from scratch)
+├── checkout.html                 ← Screen 3: Checkout             (renamed from code.html)
+├── order-status.html             ← Screen 4: Order status tracker (adapted from Stitch export)
 │
 ├── css/
-│   └── globals.css               ← Body base styles, custom scrollbar, animations
+│   └── globals.css               ← Body base styles, custom scrollbar, animation keyframes
 │
 ├── js/
 │   ├── tailwind-config.js        ← Shared Tailwind token config (pasted into each page)
@@ -257,7 +289,7 @@ thehealthybearcafe/
 │
 ├── images/
 │   ├── bear-logo.svg             ← Brand mark (bear icon in primary green)
-│   ├── boerewors.jpg             ← Food photography (use Unsplash until real photos)
+│   ├── boerewors.jpg
 │   ├── panini.jpg
 │   ├── chips.jpg
 │   ├── tramazeni.jpg
@@ -266,10 +298,20 @@ thehealthybearcafe/
 │   ├── vetkoek.jpg
 │   ├── chicken-mayo.jpg
 │   └── drinks.jpg
-│
-└── stitch_modern_canteen_ordering_platform/   ← Original Stitch export (reference only)
-    └── code.html
 ```
+
+> **Stitch reference exports** (read-only, never modify):
+> ```
+> c:\Users\tashi\Downloads\stitch_modern_canteen_ordering_platform (1)\
+> stitch_modern_canteen_ordering_platform\
+> ├── checkout_order_summary\code.html          ← Screen 3 source (already copied as code.html)
+> ├── menu_the_healthy_bear_cafe\code.html       ← Screen 1 source
+> ├── order_status_track_your_meal\code.html     ← Screen 4 source
+> ├── menu_list_view\screen.png                  ← Screen 2 reference image
+> ├── ursine_fresh\DESIGN.md                     ← Design system source
+> ├── whatsapp_image_2026_05_15_at_10.21.25.jpeg\
+> └── whatsapp_image_2026_05_15_at_10.21.26.jpeg\
+> ```
 
 ---
 
@@ -528,61 +570,110 @@ While images load, show grey placeholder rectangles with shimmer animation inste
 
 ## 9. Implementation Phases
 
-### Phase 1 — Foundation (Day 1)
-- [ ] Rename `code.html` → `checkout.html`
-- [ ] Create `index.html` (redirect to `menu-card.html`)
-- [ ] Create `css/globals.css` with body reset, scrollbar hide, animation keyframes
-- [ ] Create `js/tailwind-config.js` (shared Tailwind token config)
-- [ ] Create `js/cart.js` (localStorage helpers: get/add/remove/clear/total/count)
-- [ ] Create `js/menu-data.js` (full menu items array)
-- [ ] Add bear SVG logo to `images/bear-logo.svg`
-- [ ] Add placeholder images (Unsplash URLs) for all menu items
+> **Stitch exports** are the canonical visual starting points for screens 1, 3, and 4.  
+> Each phase that uses an export starts with: **copy → preview → wire up JS**.  
+> Screen 2 has no export; build it from scratch using `screen.png` and the component library (§6).
 
-**Checkpoint:** Open `checkout.html` in browser — must look identical to `screen.png`.
+---
+
+### Phase 1 — Foundation (Day 1)
+- [ ] Copy `code.html` (checkout Stitch export already in repo) → rename to `checkout.html`
+- [ ] Create `index.html` (redirect to `menu-card.html`)
+- [ ] Create `css/globals.css` — body reset, `scrollbar-none`, animation `@keyframes` from §8
+- [ ] Create `js/tailwind-config.js` — shared Tailwind token config object (single source of truth)
+- [ ] Create `js/cart.js` — `getCart / addItem / removeItem / clearCart / getTotal / getCount`
+- [ ] Create `js/menu-data.js` — full `MENU` array from §7
+- [ ] Add `images/bear-logo.svg` (inline SVG bear head in primary green `#006d37`)
+- [ ] Set all menu item images to Unsplash CDN URLs (landscape food photos matching each item)
+
+**Checkpoint:** Open `checkout.html` in browser — must be pixel-identical to the Stitch export.
+
+---
 
 ### Phase 2 — Checkout Polish (Day 1)
-- [ ] Wire up cart.js so checkout reads cart from localStorage
-- [ ] Implement pickup time toggle (ASAP/Schedule shows time slots)
-- [ ] Add "Place Order" handler: clears cart, writes order to localStorage, redirects to `order-status.html`
-- [ ] Refine checkout.html payment radio custom styling (match `screen.png` exactly)
 
-**Checkpoint:** Full checkout flow works; cart total correct; Place Order lands on (stub) order status.
+> **Start from:** `stitch.../checkout_order_summary/code.html` (already in repo as `code.html`)
+
+- [ ] Copy the Tailwind `<script>` config block from the export into `js/tailwind-config.js`
+- [ ] Wire `cart.js` so `checkout.html` reads `getCart()` on load and renders line items dynamically
+- [ ] Implement pickup time toggle: "ASAP" (default) / "Schedule" — Schedule reveals `#time-slots` with `max-height` expand (§8.8)
+- [ ] Add "Place Order" handler in `js/checkout.js`:
+  - Write `{ items, total, timestamp }` to `localStorage.order`
+  - Call `clearCart()`
+  - `window.location.href = './order-status.html'`
+- [ ] Verify payment radio custom styling matches Stitch export exactly (peer-checked Tailwind pattern from §6.9)
+
+**Checkpoint:** Full checkout flow — cart total correct, pickup toggle works, Place Order redirects to (stub) order-status page.
+
+---
 
 ### Phase 3 — Order Status Screen (Day 2)
-- [ ] Build `order-status.html` from scratch using DESIGN.md + Stitch screen dimensions (780×1768)
-- [ ] Implement vertical progress stepper (3 steps)
-- [ ] Simulate step transitions with `setTimeout` (0s → 3s → 8s)
-- [ ] Show order details read from localStorage
-- [ ] Add "Back to Menu" button that clears order state
 
-**Checkpoint:** Status screen progresses through all 3 steps smoothly.
+> **Start from:** `stitch.../order_status_track_your_meal/code.html`
+
+- [ ] Copy Stitch export HTML into `order-status.html`
+- [ ] Remove Stitch scaffolding (if any) — keep all visual HTML/CSS; add `./css/globals.css` and shared Tailwind config links
+- [ ] Replace hardcoded order detail values with dynamic read from `localStorage.order`
+- [ ] Implement vertical progress stepper in `js/order-status.js`:
+  - Step 1 "Order Placed" → active immediately (0 s)
+  - Step 2 "Being Prepared" → active after `setTimeout(3000)`
+  - Step 3 "Ready for Pickup" → active after `setTimeout(8000)`
+  - Each transition: move `step-active` class; apply completed styles to previous step; pulsing ring on active (§8.5)
+- [ ] Show estimated ready time: `new Date(Date.now() + 15 * 60000)` formatted as "12:45 PM"
+- [ ] "Back to Menu" button: clears `localStorage.order`, navigates to `./menu-card.html`
+
+**Checkpoint:** Status screen progresses through all 3 steps smoothly; order items from checkout appear correctly.
+
+---
 
 ### Phase 4 — Menu Card View (Day 2–3)
-- [ ] Build `menu-card.html` (780×3710 equivalent scrollable page)
-- [ ] Render 2-column product card grid from `menu-data.js`
-- [ ] Implement category filter chips (filter cards by category)
-- [ ] Wire "+" buttons to cart.js, animate badge
-- [ ] Show/hide cart summary bar based on cart count
-- [ ] Cart bar navigates to checkout.html
 
-**Checkpoint:** Can browse menu, filter categories, add items, see cart bar, go to checkout.
+> **Start from:** `stitch.../menu_the_healthy_bear_cafe/code.html`
+
+- [ ] Copy Stitch export HTML into `menu-card.html`
+- [ ] Add `./css/globals.css`, `./js/tailwind-config.js`, `./js/cart.js`, `./js/menu-data.js` links
+- [ ] In `js/menu-card.js`:
+  - On `DOMContentLoaded`: render product cards from `MENU` array into the 2-column grid
+  - Each card: food image, name, description (2-line clamp), price, "+" button
+  - Category chip filter: tap → re-render grid filtered by category (`all` shows everything)
+  - "+" button: `addItem(item)` → update badge count (animate with `badge-pop`, §8.2) → show/update cart bar
+  - Cart summary bar: show when `getCount() > 0`, hide otherwise; slide-up on first appearance (§8.4)
+  - Cart bar "View Order" → `./checkout.html`
+- [ ] List-view toggle in header → `./menu-list.html`
+- [ ] Skeleton shimmer on images while loading (§8.7)
+- [ ] Category chip container gets mask fade (§8.6)
+- [ ] Page fade-in on load (§8.1)
+
+**Checkpoint:** Browse menu, filter categories, add items, see badge animate, cart bar appears, navigate to checkout.
+
+---
 
 ### Phase 5 — Menu List View (Day 3)
-- [ ] Build `menu-list.html` (780×2856 equivalent)
-- [ ] Render grouped list rows from menu-data.js (grouped by category)
-- [ ] Sticky category section headers on scroll
-- [ ] Wire "+" buttons to same cart.js
-- [ ] Toggle button in header switches between card/list view
 
-**Checkpoint:** List and card views are both functional; cart state shared between them.
+> **Start from scratch** — use `stitch.../menu_list_view/screen.png` as pixel reference
+
+- [ ] Create `menu-list.html` — same fixed header as card view (list icon in active state)
+- [ ] In `js/menu-list.js`:
+  - Render list rows grouped by category from `MENU` array
+  - Section headers: `headline-sm`, sticky on scroll
+  - Each row: 72 px height, 1 px bottom divider, small square thumbnail, name + description, price + "+" button, right chevron
+  - "+" button: same `cart.js` wiring as card view
+  - Cart bar at bottom: same component, same logic
+- [ ] Card-view toggle in header → `./menu-card.html`
+- [ ] Cart state shared seamlessly between both views via `localStorage`
+
+**Checkpoint:** List and card views both functional; cart state survives navigation between them.
+
+---
 
 ### Phase 6 — Polish & QA (Day 4)
-- [ ] Apply all micro-interactions (Phase 8 animations)
-- [ ] Test on mobile viewport (Chrome DevTools 390px and 780px)
-- [ ] Test cart persistence across page refreshes and navigations
-- [ ] Test full flow: Menu → Add 2 items → Checkout → Place Order → Order Status → Back to Menu
-- [ ] Run Lighthouse (accessibility + performance pass targets: >85 each)
-- [ ] Fix any contrast issues (WCAG AA minimum for body text)
+- [ ] Apply all remaining micro-interactions from §8 (verify each `@keyframe` is in `globals.css`)
+- [ ] Test at 390 px and 780 px viewports (Chrome DevTools device toolbar)
+- [ ] Test full happy path: Menu Card → add 2 items → Checkout → Place Order → Order Status (all 3 steps) → Back to Menu
+- [ ] Test cart persistence: add items, refresh page — cart unchanged
+- [ ] Fix any content hidden under fixed header (`pt-14` or `mt-14`) or bottom bars (`pb-24`)
+- [ ] Run Lighthouse (Accessibility + Performance > 85 each)
+- [ ] Fix WCAG AA contrast failures (primary green `#006d37` on white passes at 7.5:1 ✓ — check other combos)
 
 ---
 
@@ -618,15 +709,21 @@ While images load, show grey placeholder rectangles with shimmer animation inste
 
 ---
 
-## 11. Remaining Assets to Acquire
+## 11. Reference Assets
 
-Before implementing screens 1, 2, and 4, the remaining Stitch HTML exports are needed:
+All assets are available locally — no downloads needed.
 
-| Screen | Stitch Screen Name | Action Needed |
+> **Stitch base path:** `c:\Users\tashi\Downloads\stitch_modern_canteen_ordering_platform (1)\stitch_modern_canteen_ordering_platform\`
+
+| Asset | Path (relative to base) | Usage |
 |---|---|---|
-| Menu — Card View | "Menu - The Healthy Bear Cafe" | Download individual screen zip from Stitch |
-| Menu — List View | "Menu - List View" | Download individual screen zip from Stitch |
-| Order Status | "Order Status - Track Your Meal" | Download individual screen zip from Stitch |
+| Screen 1 Stitch export | `menu_the_healthy_bear_cafe\code.html` | Starting point for `menu-card.html` |
+| Screen 2 reference image | `menu_list_view\screen.png` | Visual reference — no HTML export exists |
+| Screen 3 Stitch export | `checkout_order_summary\code.html` | Already in repo as `code.html` |
+| Screen 4 Stitch export | `order_status_track_your_meal\code.html` | Starting point for `order-status.html` |
+| Design system | `ursine_fresh\DESIGN.md` | Token source of truth |
+| WhatsApp screenshot 1 | `whatsapp_image_2026_05_15_at_10.21.25.jpeg\` | Original design intent |
+| WhatsApp screenshot 2 | `whatsapp_image_2026_05_15_at_10.21.26.jpeg\` | Original design intent |
 
 **How to get them:**
 1. Open [Stitch Design](https://stitch.withgoogle.com) in a browser
