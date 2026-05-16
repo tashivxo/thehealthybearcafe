@@ -4,7 +4,16 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Checkout - The Healthy Bear Cafe</title>
+<script>
+        if (window.location.protocol !== 'file:') {
+            const base = document.createElement('base');
+            base.href = '/';
+            document.head.appendChild(base);
+        }
+    </script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="../styles/main.css" rel="stylesheet"/>
+<link href="../styles/components.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -115,10 +124,10 @@
     }
   </style>
   </head>
-<body class="antialiased min-h-screen flex flex-col items-center">
+<body class="antialiased min-h-screen flex flex-col items-center" data-page="checkout">
 <!-- TopAppBar -->
 <header class="w-full bg-surface text-primary border-b border-outline-variant flex justify-between items-center px-margin-mobile md:px-margin-desktop h-14 fixed top-0 z-50">
-<button aria-label="Go back" class="text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors" id="back-button" type="button">
+<button aria-label="Go back" class="text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors" data-action="go-back" data-fallback="/menu" id="back-button" type="button">
 <span class="material-symbols-outlined">arrow_back</span>
 </button>
 <div class="text-headline-sm-mobile font-headline-sm font-bold text-primary truncate mx-4">
@@ -193,90 +202,12 @@
 <div class="w-full max-w-[600px] flex justify-between items-center gap-md">
 <div class="flex flex-col">
 <span class="text-label-sm font-label-sm text-on-surface-variant">Total</span>
-<span class="text-headline-md font-headline-md text-primary" id="total-amount">R0.00</span>
+<span class="text-headline-md font-headline-md text-primary" id="checkout-total">R0.00</span>
 </div>
-<button class="bg-primary hover:bg-surface-tint text-on-primary text-headline-sm font-headline-sm py-3 px-8 rounded-full min-h-[48px] flex-1 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" id="place-order-button" type="button">
+<button class="bg-primary hover:bg-surface-tint text-on-primary text-headline-sm font-headline-sm py-3 px-8 rounded-full min-h-[48px] flex-1 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" data-action="place-order" data-href="/orders" id="place-order-button" type="button">
                 Place Order
             </button>
 </div>
 </div>
-<script>
-    const CART_KEY = 'thbc_cart_v1';
-    const ORDER_KEY = 'thbc_last_order_v1';
-
-    function loadCart() {
-        try {
-            return JSON.parse(localStorage.getItem(CART_KEY)) || {};
-        } catch {
-            return {};
-        }
-    }
-
-    function formatCurrency(amount) {
-        return `R${amount.toFixed(2)}`;
-    }
-
-    function renderOrderSummary() {
-        const cart = loadCart();
-        const items = Object.values(cart);
-        const itemsContainer = document.getElementById('order-summary-items');
-        const subtotalAmount = document.getElementById('subtotal-amount');
-        const totalAmount = document.getElementById('total-amount');
-        const placeOrderButton = document.getElementById('place-order-button');
-
-        if (!items.length) {
-            itemsContainer.innerHTML = `
-<div class="rounded-lg bg-surface-container p-md text-body-lg font-body-lg text-on-surface-variant">
-    Your cart is empty. Add something from the menu before checking out.
-</div>`;
-            subtotalAmount.textContent = formatCurrency(0);
-            totalAmount.textContent = formatCurrency(0);
-            placeOrderButton.disabled = true;
-            return;
-        }
-
-        const subtotal = items.reduce((sum, item) => sum + item.price * item.qty, 0);
-        itemsContainer.innerHTML = items.map((item, index) => `
-<div class="flex justify-between items-center py-2 ${index < items.length - 1 ? 'border-b border-surface-variant' : ''}">
-    <div class="flex flex-col">
-        <span class="text-body-lg font-body-lg text-on-surface">${item.qty}x ${item.name}</span>
-    </div>
-    <span class="text-label-bold font-label-bold text-primary">${formatCurrency(item.price * item.qty)}</span>
-</div>`).join('');
-        subtotalAmount.textContent = formatCurrency(subtotal);
-        totalAmount.textContent = formatCurrency(subtotal);
-        placeOrderButton.disabled = false;
-    }
-
-    document.getElementById('back-button').addEventListener('click', () => {
-        if (window.history.length > 1) {
-            window.history.back();
-            return;
-        }
-
-        window.location.href = '../menu_the_healthy_bear_cafe/code.html';
-    });
-
-    document.getElementById('place-order-button').addEventListener('click', () => {
-        const items = Object.values(loadCart());
-        if (!items.length) {
-            return;
-        }
-
-        const subtotal = items.reduce((sum, item) => sum + item.price * item.qty, 0);
-        const order = {
-            orderNumber: `#HB-${String(Date.now()).slice(-4)}`,
-            etaMinutes: 15,
-            total: subtotal,
-            items,
-            createdAt: new Date().toISOString()
-        };
-
-        localStorage.setItem(ORDER_KEY, JSON.stringify(order));
-        localStorage.removeItem(CART_KEY);
-        window.location.href = '../order_status_track_your_meal/code.html';
-    });
-
-    renderOrderSummary();
-</script>
+<script src="../scripts/main.js"></script>
 </body></html>

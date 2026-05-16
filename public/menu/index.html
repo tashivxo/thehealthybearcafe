@@ -4,7 +4,16 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>The Healthy Bear Cafe - Menu</title>
+<script>
+                if (window.location.protocol !== 'file:') {
+                        const base = document.createElement('base');
+                        base.href = '/';
+                        document.head.appendChild(base);
+                }
+        </script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="../styles/main.css" rel="stylesheet"/>
+<link href="../styles/components.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -174,7 +183,7 @@
 <!-- TopAppBar -->
 <header class="fixed top-0 w-full z-50 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline flex justify-between items-center px-margin-mobile h-14">
 <div class="flex items-center gap-sm">
-<button class="text-primary dark:text-inverse-primary hover:bg-surface-container-high dark:hover:bg-on-surface-variant p-2 rounded-full" data-action="navigate" data-href="../menu_list_view/code.html" type="button">
+<button class="text-primary dark:text-inverse-primary hover:bg-surface-container-high dark:hover:bg-on-surface-variant p-2 rounded-full" data-action="navigate" data-href="/menu/list" type="button">
 <span class="material-symbols-outlined" data-icon="menu">menu</span>
 </button>
 <span class="text-headline-sm-mobile font-headline-sm font-bold text-primary dark:text-inverse-primary">The Healthy Bear Cafe</span>
@@ -265,7 +274,7 @@
 <span class="text-body-sm font-body-sm text-on-surface-variant" id="cart-count-label">Cart (0 items)</span>
 <span class="text-headline-sm font-headline-sm text-on-surface font-bold" id="cart-total-label">R0</span>
 </div>
-<button class="bg-primary text-on-primary rounded-lg px-6 py-3 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed" data-action="checkout" data-href="../checkout_order_summary/code.html" type="button">
+<button class="bg-primary text-on-primary rounded-lg px-6 py-3 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed" data-action="checkout" data-href="/checkout" type="button">
 <span>Checkout</span>
 <span class="material-symbols-outlined" data-icon="chevron_right" style="font-variation-settings: 'FILL' 0;">chevron_right</span>
 </button>
@@ -274,15 +283,15 @@
 </div>
 <!-- BottomNavBar -->
 <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface dark:bg-inverse-surface border-t border-outline-variant dark:border-outline md:hidden rounded-t-xl shadow-sm">
-<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 scale-95 transition-transform duration-200" href="../menu_the_healthy_bear_cafe/code.html">
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 scale-95 transition-transform duration-200" data-route="/menu" href="/menu">
 <span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
 <span class="text-label-sm font-label-sm mt-1">Menu</span>
 </a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-container dark:hover:bg-on-surface-variant rounded-full" href="../checkout_order_summary/code.html">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-container dark:hover:bg-on-surface-variant rounded-full" data-route="/checkout" href="/checkout">
 <span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
 <span class="text-label-sm font-label-sm mt-1">Cart</span>
 </a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-container dark:hover:bg-on-surface-variant rounded-full" href="../order_status_track_your_meal/code.html">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-container dark:hover:bg-on-surface-variant rounded-full" data-route="/orders" href="/orders">
 <span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
 <span class="text-label-sm font-label-sm mt-1">Orders</span>
 </a>
@@ -301,5 +310,5 @@
             scrollbar-width: none;  /* Firefox */
         }
     </style>
-<script src="../app.js"></script>
+<script src="../scripts/main.js"></script>
 </body></html>

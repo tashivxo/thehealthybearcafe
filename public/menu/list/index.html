@@ -4,7 +4,16 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>The Healthy Bear Cafe — Today's Menu</title>
+<script>
+  if (window.location.protocol !== 'file:') {
+    const base = document.createElement('base');
+    base.href = '/';
+    document.head.appendChild(base);
+  }
+</script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="../styles/main.css" rel="stylesheet"/>
+<link href="../styles/components.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
@@ -113,7 +122,7 @@
 <!-- TopAppBar -->
 <header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant flex justify-between items-center px-margin-mobile h-14">
   <div class="flex items-center gap-sm">
-    <button class="text-primary hover:bg-surface-container-high p-2 rounded-full" data-action="navigate" data-href="../menu_the_healthy_bear_cafe/code.html" type="button">
+    <button class="text-primary hover:bg-surface-container-high p-2 rounded-full" data-action="navigate" data-href="/menu" type="button">
       <span class="material-symbols-outlined">menu</span>
     </button>
     <span class="text-headline-sm font-headline-sm font-bold text-primary">The Healthy Bear Cafe</span>
@@ -293,7 +302,7 @@
         <span class="text-body-sm font-body-sm text-on-surface-variant" id="cart-count-label">Cart (0 items)</span>
         <span class="text-headline-sm font-headline-sm text-on-surface font-bold" id="cart-total-label">R0</span>
       </div>
-      <button class="bg-primary text-on-primary rounded-lg px-6 py-3 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center gap-2 hover:bg-surface-tint transition-colors disabled:opacity-50 disabled:cursor-not-allowed" data-action="checkout" data-href="../checkout_order_summary/code.html" type="button">
+      <button class="bg-primary text-on-primary rounded-lg px-6 py-3 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center gap-2 hover:bg-surface-tint transition-colors disabled:opacity-50 disabled:cursor-not-allowed" data-action="checkout" data-href="/checkout" type="button">
         <span>Checkout</span>
         <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 0;">chevron_right</span>
       </button>
@@ -303,15 +312,15 @@
 
 <!-- BottomNavBar -->
 <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface border-t border-outline-variant md:hidden rounded-t-xl shadow-sm">
-  <a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1" href="../menu_list_view/code.html">
+  <a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1" data-route="/menu/list" href="/menu/list">
     <span class="material-symbols-outlined">restaurant_menu</span>
     <span class="text-label-sm font-label-sm mt-1">Menu</span>
   </a>
-  <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container rounded-full" href="../checkout_order_summary/code.html">
+  <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container rounded-full" data-route="/checkout" href="/checkout">
     <span class="material-symbols-outlined">shopping_cart</span>
     <span class="text-label-sm font-label-sm mt-1">Cart</span>
   </a>
-  <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container rounded-full" href="../order_status_track_your_meal/code.html">
+  <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container rounded-full" data-route="/orders" href="/orders">
     <span class="material-symbols-outlined">receipt_long</span>
     <span class="text-label-sm font-label-sm mt-1">Orders</span>
   </a>
@@ -321,7 +330,7 @@
   </a>
 </nav>
 
-<script src="../app.js"></script>
+<script src="../scripts/main.js"></script>
 
 </body>
 </html>

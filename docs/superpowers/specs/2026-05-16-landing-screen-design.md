@@ -19,9 +19,9 @@ The landing page should introduce the cafe, showcase the brochure-style content,
 
 The live flow will be:
 
-1. Root entry at `index.html`
-2. Root redirect from `index.html` to the newest Stitch home screen
-3. Primary CTA on that home screen routes into `stitch_modern_canteen_ordering_platform/menu_the_healthy_bear_cafe/code.html`
+1. Root entry at `/`
+2. Root route serves the newest Stitch home screen from `src/pages/index.html`
+3. Primary CTA on that home screen routes into `/menu`
 4. Existing ordering flow remains unchanged in responsibility:
    - menu grid
    - menu list
@@ -71,12 +71,12 @@ This option best satisfies the project constraints:
 
 ### Root Behavior
 
-`index.html` becomes a lightweight redirect shell instead of a direct menu redirect.
+`/` becomes the canonical landing route instead of a redirect shell.
 
 Responsibilities:
 
-- send users to the newest Stitch brochure landing screen
-- use relative paths so both `file://` usage and Vercel deployment work
+- serve the newest Stitch brochure landing screen directly
+- use clean routes in deployment and local file-safe route resolution in the shared runtime
 
 ### Landing Screen Responsibilities
 

@@ -4,7 +4,16 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Checkout - The Healthy Bear Cafe</title>
+<script>
+        if (window.location.protocol !== 'file:') {
+            const base = document.createElement('base');
+            base.href = '/src/pages/';
+            document.head.appendChild(base);
+        }
+    </script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="../styles/main.css" rel="stylesheet"/>
+<link href="../styles/components.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -115,10 +124,10 @@
     }
   </style>
   </head>
-<body class="antialiased min-h-screen flex flex-col items-center">
+<body class="antialiased min-h-screen flex flex-col items-center" data-page="checkout">
 <!-- TopAppBar -->
 <header class="w-full bg-surface text-primary border-b border-outline-variant flex justify-between items-center px-margin-mobile md:px-margin-desktop h-14 fixed top-0 z-50">
-<button aria-label="Go back" class="text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors">
+<button aria-label="Go back" class="text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors" data-action="go-back" data-fallback="/menu" id="back-button" type="button">
 <span class="material-symbols-outlined">arrow_back</span>
 </button>
 <div class="text-headline-sm-mobile font-headline-sm font-bold text-primary truncate mx-4">
@@ -131,22 +140,11 @@
 <!-- Order Summary -->
 <section class="flex flex-col gap-md">
 <h2 class="text-headline-sm font-headline-sm text-on-surface">Order Summary</h2>
-<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-sm">
-<div class="flex justify-between items-center py-2 border-b border-surface-variant">
-<div class="flex flex-col">
-<span class="text-body-lg font-body-lg text-on-surface">1x Panini</span>
-</div>
-<span class="text-label-bold font-label-bold text-primary">R30.00</span>
-</div>
-<div class="flex justify-between items-center py-2 border-b border-surface-variant">
-<div class="flex flex-col">
-<span class="text-body-lg font-body-lg text-on-surface">1x Large Hot Chips</span>
-</div>
-<span class="text-label-bold font-label-bold text-primary">R35.00</span>
-</div>
-<div class="flex justify-between items-center pt-2 mt-2">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-sm" id="order-summary-card">
+<div class="flex flex-col gap-sm" id="order-summary-items"></div>
+<div class="flex justify-between items-center pt-2 mt-2 border-t border-surface-variant" id="subtotal-row">
 <span class="text-headline-sm font-headline-sm text-on-surface">Subtotal</span>
-<span class="text-headline-sm font-headline-sm text-primary">R65.00</span>
+<span class="text-headline-sm font-headline-sm text-primary" id="subtotal-amount">R0.00</span>
 </div>
 </div>
 </section>
@@ -204,11 +202,12 @@
 <div class="w-full max-w-[600px] flex justify-between items-center gap-md">
 <div class="flex flex-col">
 <span class="text-label-sm font-label-sm text-on-surface-variant">Total</span>
-<span class="text-headline-md font-headline-md text-primary">R65.00</span>
+<span class="text-headline-md font-headline-md text-primary" id="checkout-total">R0.00</span>
 </div>
-<button class="bg-primary hover:bg-surface-tint text-on-primary text-headline-sm font-headline-sm py-3 px-8 rounded-full min-h-[48px] flex-1 transition-colors">
+<button class="bg-primary hover:bg-surface-tint text-on-primary text-headline-sm font-headline-sm py-3 px-8 rounded-full min-h-[48px] flex-1 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" data-action="place-order" data-href="/orders" id="place-order-button" type="button">
                 Place Order
             </button>
 </div>
 </div>
+<script src="../scripts/main.js"></script>
 </body></html>

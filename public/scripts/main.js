@@ -1,6 +1,34 @@
 (function () {
   const CART_KEY = "thbc_cart_v1";
   const ORDER_KEY = "thbc_last_order_v1";
+  const FILE_ROUTE_MAP = {
+    "/": "./index.html",
+    "/menu": "./menu.html",
+    "/menu/list": "./menu-list.html",
+    "/checkout": "./checkout.html",
+    "/orders": "./orders.html"
+  };
+
+  function resolveRoute(path) {
+    if (!path) {
+      return path;
+    }
+
+    if (window.location.protocol === "file:") {
+      return FILE_ROUTE_MAP[path] || path;
+    }
+
+    return path;
+  }
+
+  function syncRouteLinks() {
+    document.querySelectorAll("[data-route]").forEach((link) => {
+      const route = link.dataset.route;
+      if (route) {
+        link.setAttribute("href", resolveRoute(route));
+      }
+    });
+  }
 
   function loadJson(key, fallback) {
     try {
@@ -98,7 +126,7 @@
   function renderCheckout() {
     const items = getCartItems();
     const summaryCard = document.getElementById("order-summary-card");
-    const totalLabel = document.getElementById("checkout-total");
+    const totalLabel = document.getElementById("checkout-total") || document.getElementById("total-amount");
     const placeOrderButton = document.querySelector('[data-action="place-order"]');
 
     if (!summaryCard || !totalLabel || !placeOrderButton) {
@@ -243,12 +271,12 @@
       if (!getCartSummary().count) {
         return;
       }
-      window.location.href = actionable.dataset.href;
+      window.location.href = resolveRoute(actionable.dataset.href);
       return;
     }
 
     if (action === "navigate") {
-      window.location.href = actionable.dataset.href;
+      window.location.href = resolveRoute(actionable.dataset.href);
       return;
     }
 
@@ -256,7 +284,7 @@
       if (window.history.length > 1) {
         window.history.back();
       } else if (actionable.dataset.fallback) {
-        window.location.href = actionable.dataset.fallback;
+        window.location.href = resolveRoute(actionable.dataset.fallback);
       }
       return;
     }
@@ -264,7 +292,7 @@
     if (action === "place-order") {
       const order = createOrder();
       if (order) {
-        window.location.href = actionable.dataset.href;
+        window.location.href = resolveRoute(actionable.dataset.href);
       }
       return;
     }
@@ -284,6 +312,8 @@
   });
 
   function initPage() {
+    syncRouteLinks();
+
     const page = document.body.dataset.page;
     if (page === "menu-grid" || page === "menu-list") {
       updateMenuChrome();

@@ -1,0 +1,15 @@
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.menu-dots {
+  flex-grow: 1;
+  border-bottom: 1px dotted #bbcbbb;
+  margin: 0 8px 5px 8px;
+  opacity: 0.5;
+}

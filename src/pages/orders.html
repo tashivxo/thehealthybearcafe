@@ -4,7 +4,16 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Order Confirmation - The Healthy Bear Cafe</title>
+<script>
+        if (window.location.protocol !== 'file:') {
+            const base = document.createElement('base');
+            base.href = '/src/pages/';
+            document.head.appendChild(base);
+        }
+    </script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="../styles/main.css" rel="stylesheet"/>
+<link href="../styles/components.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -109,14 +118,14 @@
     }
   </style>
   </head>
-<body class="bg-surface text-on-surface min-h-screen font-body-lg flex flex-col md:max-w-[1200px] md:mx-auto">
+<body class="bg-surface text-on-surface min-h-screen font-body-lg flex flex-col md:max-w-[1200px] md:mx-auto" data-page="order-status">
 <!-- Header (Suppressed navigation, showing close intent) -->
 <header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-14 bg-surface border-b border-outline-variant">
 <div class="flex items-center gap-sm">
 <span class="material-symbols-outlined text-primary text-[24px]">restaurant_menu</span>
 <span class="text-headline-sm-mobile md:text-headline-sm font-headline-sm font-bold text-primary">The Healthy Bear Cafe</span>
 </div>
-<button class="p-xs rounded-full hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center" id="close-button" type="button">
+<button class="p-xs rounded-full hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center" data-action="navigate" data-href="/menu" id="close-button" type="button">
 <span class="material-symbols-outlined" data-icon="close">close</span>
 </button>
 </header>
@@ -176,40 +185,9 @@
 </div>
 <p class="w-full max-w-md mb-lg text-center text-body-sm font-body-sm text-on-surface-variant" id="order-summary-text"></p>
 <!-- Action Button -->
-<button class="w-full max-w-md h-12 bg-surface border border-on-surface text-on-surface rounded-DEFAULT text-label-bold font-label-bold flex items-center justify-center hover:bg-surface-container-high transition-colors" id="back-to-menu-button" type="button">
+<button class="w-full max-w-md h-12 bg-surface border border-on-surface text-on-surface rounded-DEFAULT text-label-bold font-label-bold flex items-center justify-center hover:bg-surface-container-high transition-colors" data-action="navigate" data-href="/menu" id="back-to-menu-button" type="button">
             Back to Menu
         </button>
 </main>
-<script>
-    const ORDER_KEY = 'thbc_last_order_v1';
-
-    function loadOrder() {
-        try {
-            return JSON.parse(localStorage.getItem(ORDER_KEY));
-        } catch {
-            return null;
-        }
-    }
-
-    const order = loadOrder();
-    const menuUrl = '../menu_the_healthy_bear_cafe/code.html';
-
-    if (order) {
-        document.getElementById('order-number').textContent = order.orderNumber;
-        document.getElementById('pickup-eta').textContent = `${order.etaMinutes} mins`;
-
-        const itemCount = order.items.reduce((sum, item) => sum + item.qty, 0);
-        document.getElementById('order-summary-text').textContent = `${itemCount} item${itemCount === 1 ? '' : 's'} confirmed. Total R${order.total.toFixed(2)}.`;
-    } else {
-        document.getElementById('order-summary-text').textContent = 'No active order found. Head back to the menu to place one.';
-    }
-
-    document.getElementById('close-button').addEventListener('click', () => {
-        window.location.href = menuUrl;
-    });
-
-    document.getElementById('back-to-menu-button').addEventListener('click', () => {
-        window.location.href = menuUrl;
-    });
-</script>
+<script src="../scripts/main.js"></script>
 </body></html>

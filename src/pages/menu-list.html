@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Healthy Bear Cafe — Today's Menu</title>
+<script>
+  if (window.location.protocol !== 'file:') {
+    const base = document.createElement('base');
+    base.href = '/src/pages/';
+    document.head.appendChild(base);
+  }
+</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="../styles/main.css" rel="stylesheet"/>
+<link href="../styles/components.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "on-surface-variant": "#3d4a3e",
+          "on-tertiary-container": "#444546",
+          "on-tertiary": "#ffffff",
+          "on-secondary-fixed": "#1b1b1b",
+          "surface-bright": "#fbf9f8",
+          "surface-container-high": "#e9e8e7",
+          "on-secondary-container": "#646464",
+          "inverse-primary": "#4ae183",
+          "surface-container-lowest": "#ffffff",
+          "inverse-surface": "#303031",
+          "surface-variant": "#e4e2e2",
+          "on-surface": "#1b1c1c",
+          "secondary-fixed-dim": "#c6c6c6",
+          "on-primary": "#ffffff",
+          "on-background": "#1b1c1c",
+          "tertiary-fixed-dim": "#c6c6c7",
+          "surface-container": "#efeded",
+          "error-container": "#ffdad6",
+          "secondary-fixed": "#e2e2e2",
+          "surface-container-highest": "#e4e2e2",
+          "surface": "#fbf9f8",
+          "on-error-container": "#93000a",
+          "on-primary-fixed-variant": "#005228",
+          "primary-container": "#2ecc71",
+          "surface-tint": "#006d37",
+          "error": "#ba1a1a",
+          "tertiary": "#5d5f5f",
+          "tertiary-container": "#b2b3b3",
+          "on-tertiary-fixed-variant": "#454747",
+          "on-secondary": "#ffffff",
+          "on-primary-fixed": "#00210c",
+          "background": "#fbf9f8",
+          "on-error": "#ffffff",
+          "on-tertiary-fixed": "#1a1c1c",
+          "primary-fixed": "#6bfe9c",
+          "primary": "#006d37",
+          "primary-fixed-dim": "#4ae183",
+          "secondary-container": "#e2e2e2",
+          "secondary": "#5e5e5e",
+          "outline": "#6c7b6d",
+          "inverse-on-surface": "#f2f0f0",
+          "on-primary-container": "#005027",
+          "surface-dim": "#dbdad9",
+          "outline-variant": "#bbcbbb",
+          "on-secondary-fixed-variant": "#474747",
+          "surface-container-low": "#f5f3f3",
+          "tertiary-fixed": "#e2e2e2"
+        },
+        borderRadius: {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        spacing: {
+          "margin-desktop": "48px",
+          "lg": "24px",
+          "xl": "32px",
+          "md": "16px",
+          "margin-mobile": "16px",
+          "gutter": "16px",
+          "unit": "4px",
+          "xs": "4px",
+          "sm": "8px"
+        },
+        fontFamily: {
+          "headline-sm": ["Inter"],
+          "headline-md": ["Inter"],
+          "display-lg": ["Inter"],
+          "body-lg": ["Inter"],
+          "body-sm": ["Inter"],
+          "label-sm": ["Inter"],
+          "label-bold": ["Inter"],
+          "display-lg-mobile": ["Inter"]
+        },
+        fontSize: {
+          "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+          "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+          "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+          "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+          "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+          "label-bold": ["12px", { "lineHeight": "16px", "fontWeight": "700" }],
+          "display-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "700" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  body { min-height: max(884px, 100dvh); }
+</style>
+</head>
+<body class="bg-background text-on-background pb-36" data-page="menu-list">
+
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant flex justify-between items-center px-margin-mobile h-14">
+  <div class="flex items-center gap-sm">
+    <button class="text-primary hover:bg-surface-container-high p-2 rounded-full" data-action="navigate" data-href="/menu" type="button">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+    <span class="text-headline-sm font-headline-sm font-bold text-primary">The Healthy Bear Cafe</span>
+  </div>
+  <div>
+    <img alt="Profile" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOcV4kogmBtmZv2UFkUNsKmq0B36okreFL5dw80VGdV0OVCce9MZviUigfP6jnOB7jRG32npyG_8PWfcJB5LS0nYySap8plEzz41QRQVT5lbGT7NZz0aejKPRNZaB_YOynmKUUuPAgTVP51tKu8YyyZHTmaAbB42bcoVbaAPllgNS2crrsmQ-avp6weqGPHIXA2ogXZpzZXbGtPMXiY7MaQGh69ymR9stkDT2OIt7aa06ALYImn1HT4Xhs0DiCoR3Hezsc5UCseCQ"/>
+  </div>
+</header>
+
+<main class="pt-20 px-margin-mobile md:px-margin-desktop max-w-[1200px] mx-auto">
+
+  <!-- Category Chips -->
+  <div class="flex overflow-x-auto gap-sm pb-sm mb-xl no-scrollbar" data-filter-group>
+    <button class="flex-shrink-0 bg-on-surface text-surface rounded-full px-4 py-2 text-label-bold font-label-bold" data-filter="all" type="button">All Items</button>
+    <button class="flex-shrink-0 bg-surface-container text-on-surface-variant rounded-full px-4 py-2 text-label-bold font-label-bold border border-outline-variant" data-filter="meals" type="button">Meals</button>
+    <button class="flex-shrink-0 bg-surface-container text-on-surface-variant rounded-full px-4 py-2 text-label-bold font-label-bold border border-outline-variant" data-filter="snacks" type="button">Quick Snacks</button>
+    <button class="flex-shrink-0 bg-surface-container text-on-surface-variant rounded-full px-4 py-2 text-label-bold font-label-bold border border-outline-variant" data-filter="drinks" type="button">Drinks</button>
+  </div>
+
+  <!-- Section: Meals -->
+  <h2 class="text-label-bold font-label-bold text-on-surface-variant uppercase tracking-wider mb-md">Meals</h2>
+  <div class="flex flex-col divide-y divide-outline-variant mb-xl bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden">
+
+    <!-- Panini -->
+    <div class="flex items-center gap-md p-md hover:bg-surface-container transition-colors" data-categories="meals popular">
+      <img alt="Panini" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQl6eJ5_2jpO9r5PC5XEmF7bf3udQu8OfEAMuJGzx5Uk9t8o6OnVFjjR7xFtblRH9ddUUSWl-67sFLXPNn6xB43i7OBrpDXwrO_6_AHxySpvXMAegx5oMu_JxqXchQMVbV8w_ltFT-t4zGhxAqkaAdiBcJz3gbLd8MQaMGNaVFc5RdKhrT7Zdfp14pAqe79H5tR_vbqVDuBrOkw0paNrtrJJW7RuRr23d6xsyVppH03VH6VxMrhB2FWOjRko1fUy0VA-uEm9oZUQk"/>
+      <div class="flex-1 min-w-0">
+        <h3 class="text-body-lg font-body-lg font-semibold text-on-surface">Panini</h3>
+        <p class="text-body-sm font-body-sm text-on-surface-variant truncate">Freshly toasted with your choice of fillings.</p>
+        <span class="text-label-bold font-label-bold text-primary mt-xs block">R30</span>
+      </div>
+      <button class="flex-shrink-0 bg-primary text-on-primary rounded-full w-10 h-10 flex items-center justify-center shadow-sm hover:bg-surface-tint transition-colors" data-action="add-to-cart" data-id="panini" data-name="Panini" data-price="30" type="button">
+        <span class="material-symbols-outlined text-[20px]">add</span>
+      </button>
+    </div>
+
+    <!-- Wings + Chips -->
+    <div class="flex items-center gap-md p-md hover:bg-surface-container transition-colors" data-categories="meals popular">
+      <img alt="Wings + Chips" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANVTUa1FK1eX9j2saxp9act3W7XI82BwBWCdtoZuNDG2F0tA5gM7ztfi_vjXBczlDSRj5Wzt9ka2S4PTE2YEEjSlVdJujSqDAwAduweEZgAKOrBHcHwseEmsj9p52CdPcCcSmi3FDvF_uG76hZ0y46vVDBiw-8lLFmc9YDj2g5ALnCKCexBqBMmVql_r6OF7keEnAr_T_ZYKMapfchpeE-LqxplDoDqiDAdQ6Kn_He8x7L7acCFhQL6op-P7A8eKULm0y7mg6ZVXc"/>
+      <div class="flex-1 min-w-0">
+        <h3 class="text-body-lg font-body-lg font-semibold text-on-surface">Wings + Chips</h3>
+        <p class="text-body-sm font-body-sm text-on-surface-variant truncate">Crispy wings served with a side of hot chips.</p>
+        <span class="text-label-bold font-label-bold text-primary mt-xs block">R40</span>
+      </div>
+      <button class="flex-shrink-0 bg-primary text-on-primary rounded-full w-10 h-10 flex items-center justify-center shadow-sm hover:bg-surface-tint transition-colors" data-action="add-to-cart" data-id="wings-chips" data-name="Wings + Chips" data-price="40" type="button">
+        <span class="material-symbols-outlined text-[20px]">add</span>
+      </button>
+    </div>
+
+    <!-- Boerewors -->
+    <div class="flex items-center gap-md p-md hover:bg-surface-container transition-colors" data-categories="meals popular">
+      <img alt="Boerewors Roll" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkQxSylqc_1RBG3tSoK-8Iz-YyxWJj-L54j60y-XOY16d-inohhCmCPKO1ym2T7x-iEbbSYj5U9xQG--Na5fVA8DavRj9s5mYmBARW9mKbUbUVSuScE2KuXJpzvnSw6q34bCBl0l21JmkOyPLmPcpTj5bMGM6rxGRP-jSTTqtqByoXWmuFU_jmehy2H_t5RQ-TF1RBO5COWEdj0dWf1Pd1CM3J6D8d59MlvsdrVUz5LrrvmAcFsP6E6pbjs74UWwbF4ybYEEPfZ-g"/>
+      <div class="flex-1 min-w-0">
+        <h3 class="text-body-lg font-body-lg font-semibold text-on-surface">Boerewors Roll</h3>
+        <p class="text-body-sm font-body-sm text-on-surface-variant truncate">Traditional South African sausage on a roll.</p>
+        <span class="text-label-bold font-label-bold text-primary mt-xs block">R25</span>
+      </div>
+      <button class="flex-shrink-0 bg-primary text-on-primary rounded-full w-10 h-10 flex items-center justify-center shadow-sm hover:bg-surface-tint transition-colors" data-action="add-to-cart" data-id="boerewors-roll" data-name="Boerewors Roll" data-price="25" type="button">
+        <span class="material-symbols-outlined text-[20px]">add</span>
+      </button>
+    </div>
+
+    <!-- Wraps -->
+    <div class="flex items-center gap-md p-md hover:bg-surface-container transition-colors" data-categories="meals">
+      <img alt="Wraps" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQl6eJ5_2jpO9r5PC5XEmF7bf3udQu8OfEAMuJGzx5Uk9t8o6OnVFjjR7xFtblRH9ddUUSWl-67sFLXPNn6xB43i7OBrpDXwrO_6_AHxySpvXMAegx5oMu_JxqXchQMVbV8w_ltFT-t4zGhxAqkaAdiBcJz3gbLd8MQaMGNaVFc5RdKhrT7Zdfp14pAqe79H5tR_vbqVDuBrOkw0paNrtrJJW7RuRr23d6xsyVppH03VH6VxMrhB2FWOjRko1fUy0VA-uEm9oZUQk"/>
+      <div class="flex-1 min-w-0">
+        <h3 class="text-body-lg font-body-lg font-semibold text-on-surface">Wraps</h3>
+        <p class="text-body-sm font-body-sm text-on-surface-variant truncate">Fresh wraps with your choice of filling.</p>
+        <span class="text-label-bold font-label-bold text-primary mt-xs block">R38</span>
+      </div>
+      <button class="flex-shrink-0 bg-primary text-on-primary rounded-full w-10 h-10 flex items-center justify-center shadow-sm hover:bg-surface-tint transition-colors" data-action="add-to-cart" data-id="wraps" data-name="Wraps" data-price="38" type="button">
+        <span class="material-symbols-outlined text-[20px]">add</span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Section: Quick Snacks -->
+  <h2 class="text-label-bold font-label-bold text-on-surface-variant uppercase tracking-wider mb-md">Quick Snacks</h2>
+  <div class="flex flex-col divide-y divide-outline-variant mb-xl bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden">
+
+    <!-- Hot Chips (Small) -->
+    <div class="flex items-center gap-md p-md hover:bg-surface-container transition-colors" data-categories="snacks popular">
+      <img alt="Hot Chips" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6gLggtd1YOWQfp7drQ0B3u8xsW3LeLrNisH7Cdc5_uvQnJO9ZwrbHYp_U7aHtIVMR10I1p8oeMQryKV2chEUlukYj4fcWazjn-_NS9kjGzD6k2-0Bqwvq36az8c27NU9r11YlUrSxXeN6FVXKaj94WUBHYdG-9C-6h5xi0sqoTZSpEEsHklMzNNZyj-dAx_Eh-BCmXBxaDX8BTMRWLDrfuKI0uphF0h0QpKpqZN4Aa7GIdMYdKFPHDfwYemKPLXf_oaLezjdH52s"/>
+      <div class="flex-1 min-w-0">
+        <h3 class="text-body-lg font-body-lg font-semibold text-on-surface">Hot Chips (Small)</h3>
+        <p class="text-body-sm font-body-sm text-on-surface-variant truncate">Crispy golden fries.</p>
+        <span class="text-label-bold font-label-bold text-primary mt-xs block">R25</span>
+      </div>
+      <button class="flex-shrink-0 bg-primary text-on-primary rounded-full w-10 h-10 flex items-center justify-center shadow-sm hover:bg-surface-tint transition-colors" data-action="add-to-cart" data-id="hot-chips-small" data-name="Hot Chips (Small)" data-price="25" type="button">
+        <span class="material-symbols-outlined text-[20px]">add</span>
+      </button>
+    </div>
+
+    <!-- Hot Chips (Large) -->
+    <div class="flex items-center gap-md p-md hover:bg-surface-container transition-colors" data-categories="snacks popular">
+      <img alt="Hot Chips Large" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6gLggtd1YOWQfp7drQ0B3u8xsW3LeLrNisH7Cdc5_uvQnJO9ZwrbHYp_U7aHtIVMR10I1p8oeMQryKV2chEUlukYj4fcWazjn-_NS9kjGzD6k2-0Bqwvq36az8c27NU9r11YlUrSxXeN6FVXKaj94WUBHYdG-9C-6h5xi0sqoTZSpEEsHklMzNNZyj-dAx_Eh-BCmXBxaDX8BTMRWLDrfuKI0uphF0h0QpKpqZN4Aa7GIdMYdKFPHDfwYemKPLXf_oaLezjdH52s"/>
+      <div class="flex-1 min-w-0">
+        <h3 class="text-body-lg font-body-lg font-semibold text-on-surface">Hot Chips (Large)</h3>
+        <p class="text-body-sm font-body-sm text-on-surface-variant truncate">Crispy golden fries, large portion.</p>
+        <span class="text-label-bold font-label-bold text-primary mt-xs block">R35</span>
+      </div>
+      <button class="flex-shrink-0 bg-primary text-on-primary rounded-full w-10 h-10 flex items-center justify-center shadow-sm hover:bg-surface-tint transition-colors" data-action="add-to-cart" data-id="hot-chips-large" data-name="Hot Chips (Large)" data-price="35" type="button">
+        <span class="material-symbols-outlined text-[20px]">add</span>
+      </button>
+    </div>
+
+    <!-- Pies -->
+    <div class="flex items-center gap-md p-md hover:bg-surface-container transition-colors" data-categories="snacks">
+      <img alt="Pies" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkQxSylqc_1RBG3tSoK-8Iz-YyxWJj-L54j60y-XOY16d-inohhCmCPKO1ym2T7x-iEbbSYj5U9xQG--Na5fVA8DavRj9s5mYmBARW9mKbUbUVSuScE2KuXJpzvnSw6q34bCBl0l21JmkOyPLmPcpTj5bMGM6rxGRP-jSTTqtqByoXWmuFU_jmehy2H_t5RQ-TF1RBO5COWEdj0dWf1Pd1CM3J6D8d59MlvsdrVUz5LrrvmAcFsP6E6pbjs74UWwbF4ybYEEPfZ-g"/>
+      <div class="flex-1 min-w-0">
+        <h3 class="text-body-lg font-body-lg font-semibold text-on-surface">Pies</h3>
+        <p class="text-body-sm font-body-sm text-on-surface-variant truncate">Freshly baked savoury pies.</p>
+        <span class="text-label-bold font-label-bold text-primary mt-xs block">R25</span>
+      </div>
+      <button class="flex-shrink-0 bg-primary text-on-primary rounded-full w-10 h-10 flex items-center justify-center shadow-sm hover:bg-surface-tint transition-colors" data-action="add-to-cart" data-id="pies" data-name="Pies" data-price="25" type="button">
+        <span class="material-symbols-outlined text-[20px]">add</span>
+      </button>
+    </div>
+
+    <!-- Chip Roll -->
+    <div class="flex items-center gap-md p-md hover:bg-surface-container transition-colors" data-categories="snacks">
+      <img alt="Chip Roll" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6gLggtd1YOWQfp7drQ0B3u8xsW3LeLrNisH7Cdc5_uvQnJO9ZwrbHYp_U7aHtIVMR10I1p8oeMQryKV2chEUlukYj4fcWazjn-_NS9kjGzD6k2-0Bqwvq36az8c27NU9r11YlUrSxXeN6FVXKaj94WUBHYdG-9C-6h5xi0sqoTZSpEEsHklMzNNZyj-dAx_Eh-BCmXBxaDX8BTMRWLDrfuKI0uphF0h0QpKpqZN4Aa7GIdMYdKFPHDfwYemKPLXf_oaLezjdH52s"/>
+      <div class="flex-1 min-w-0">
+        <h3 class="text-body-lg font-body-lg font-semibold text-on-surface">Chip Roll</h3>
+        <p class="text-body-sm font-body-sm text-on-surface-variant truncate">Hot chips in a fresh bread roll.</p>
+        <span class="text-label-bold font-label-bold text-primary mt-xs block">R28</span>
+      </div>
+      <button class="flex-shrink-0 bg-primary text-on-primary rounded-full w-10 h-10 flex items-center justify-center shadow-sm hover:bg-surface-tint transition-colors" data-action="add-to-cart" data-id="chip-roll" data-name="Chip Roll" data-price="28" type="button">
+        <span class="material-symbols-outlined text-[20px]">add</span>
+      </button>
+    </div>
+
+    <!-- Sandwich -->
+    <div class="flex items-center gap-md p-md hover:bg-surface-container transition-colors" data-categories="snacks">
+      <img alt="Sandwich" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQl6eJ5_2jpO9r5PC5XEmF7bf3udQu8OfEAMuJGzx5Uk9t8o6OnVFjjR7xFtblRH9ddUUSWl-67sFLXPNn6xB43i7OBrpDXwrO_6_AHxySpvXMAegx5oMu_JxqXchQMVbV8w_ltFT-t4zGhxAqkaAdiBcJz3gbLd8MQaMGNaVFc5RdKhrT7Zdfp14pAqe79H5tR_vbqVDuBrOkw0paNrtrJJW7RuRr23d6xsyVppH03VH6VxMrhB2FWOjRko1fUy0VA-uEm9oZUQk"/>
+      <div class="flex-1 min-w-0">
+        <h3 class="text-body-lg font-body-lg font-semibold text-on-surface">Sandwich</h3>
+        <p class="text-body-sm font-body-sm text-on-surface-variant truncate">Freshly made with your choice of fillings.</p>
+        <span class="text-label-bold font-label-bold text-primary mt-xs block">R20</span>
+      </div>
+      <button class="flex-shrink-0 bg-primary text-on-primary rounded-full w-10 h-10 flex items-center justify-center shadow-sm hover:bg-surface-tint transition-colors" data-action="add-to-cart" data-id="sandwich" data-name="Sandwich" data-price="20" type="button">
+        <span class="material-symbols-outlined text-[20px]">add</span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Section: Drinks -->
+  <h2 class="text-label-bold font-label-bold text-on-surface-variant uppercase tracking-wider mb-md">Drinks</h2>
+  <div class="flex flex-col divide-y divide-outline-variant mb-xl bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden">
+
+    <!-- Coffee -->
+    <div class="flex items-center gap-md p-md hover:bg-surface-container transition-colors" data-categories="drinks">
+      <div class="w-20 h-20 rounded-lg bg-surface-container-high flex-shrink-0 flex items-center justify-center">
+        <span class="material-symbols-outlined text-on-surface-variant text-[36px]" style="font-variation-settings:'FILL' 1;">local_cafe</span>
+      </div>
+      <div class="flex-1 min-w-0">
+        <h3 class="text-body-lg font-body-lg font-semibold text-on-surface">Coffee</h3>
+        <p class="text-body-sm font-body-sm text-on-surface-variant truncate">Freshly brewed, hot or iced.</p>
+        <span class="text-label-bold font-label-bold text-primary mt-xs block">R15</span>
+      </div>
+      <button class="flex-shrink-0 bg-primary text-on-primary rounded-full w-10 h-10 flex items-center justify-center shadow-sm hover:bg-surface-tint transition-colors" data-action="add-to-cart" data-id="coffee" data-name="Coffee" data-price="15" type="button">
+        <span class="material-symbols-outlined text-[20px]">add</span>
+      </button>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- Cart Bar (static, 2 items) -->
+<div class="fixed bottom-[72px] left-0 w-full px-margin-mobile md:px-margin-desktop z-40" id="cart-bar">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="bg-surface border border-outline-variant rounded-xl shadow-lg p-md flex justify-between items-center">
+      <div class="flex flex-col">
+        <span class="text-body-sm font-body-sm text-on-surface-variant" id="cart-count-label">Cart (0 items)</span>
+        <span class="text-headline-sm font-headline-sm text-on-surface font-bold" id="cart-total-label">R0</span>
+      </div>
+      <button class="bg-primary text-on-primary rounded-lg px-6 py-3 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center gap-2 hover:bg-surface-tint transition-colors disabled:opacity-50 disabled:cursor-not-allowed" data-action="checkout" data-href="/checkout" type="button">
+        <span>Checkout</span>
+        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 0;">chevron_right</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface border-t border-outline-variant md:hidden rounded-t-xl shadow-sm">
+  <a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1" data-route="/menu/list" href="/menu/list">
+    <span class="material-symbols-outlined">restaurant_menu</span>
+    <span class="text-label-sm font-label-sm mt-1">Menu</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container rounded-full" data-route="/checkout" href="/checkout">
+    <span class="material-symbols-outlined">shopping_cart</span>
+    <span class="text-label-sm font-label-sm mt-1">Cart</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container rounded-full" data-route="/orders" href="/orders">
+    <span class="material-symbols-outlined">receipt_long</span>
+    <span class="text-label-sm font-label-sm mt-1">Orders</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container rounded-full" href="#">
+    <span class="material-symbols-outlined">person</span>
+    <span class="text-label-sm font-label-sm mt-1">Profile</span>
+  </a>
+</nav>
+
+<script src="../scripts/main.js"></script>
+
+</body>
+</html>

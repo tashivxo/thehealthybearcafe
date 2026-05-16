@@ -4,7 +4,16 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Home - The Healthy Bear Cafe</title>
+<script>
+        if (window.location.protocol !== 'file:') {
+            const base = document.createElement('base');
+            base.href = '/src/pages/';
+            document.head.appendChild(base);
+        }
+    </script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="../styles/main.css" rel="stylesheet"/>
+<link href="../styles/components.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
@@ -125,14 +134,14 @@
 <div class="flex items-center gap-md md:gap-xl min-w-0">
 <img alt="The Healthy Bear Cafe Logo" class="h-10 md:h-12 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu1T8U4xbqyclXfq5Yp6mSnPkJWJcngxQ0NIt0sv3V8AGz7-FwpIDR-LXJ4xzkYcvWJ1LGtC6m9PQp0ASJMZaDNryj8N9Ci3cn4giNa0E8o5RAFfB4TxCWshyQ0YwxAkxzi4UOTAW0A2rzQmI-XEzWQoeF1cWt9iBMvDx8MNgHFDblPM3acgI2NVKzZc-Sl1dKACJdLQW0ihrRtTx0dPpKGyILgYrc9fb43tG_PkuAkPjLcG7ErUc57Jg4vrcVjYsauml4eVC74Vo"/>
 <nav class="hidden md:flex items-center gap-sm lg:gap-lg ml-2 lg:ml-4">
-<a class="text-primary font-bold text-label-sm px-4 py-2 hover:bg-surface-container-high transition-colors rounded-full" href="./code.html">Home</a>
-<a class="text-on-surface-variant text-label-sm px-4 py-2 hover:bg-surface-container-high transition-colors rounded-full" href="../menu_the_healthy_bear_cafe/code.html">Menu</a>
-<a class="text-on-surface-variant text-label-sm px-4 py-2 hover:bg-surface-container-high transition-colors rounded-full" href="../checkout_order_summary/code.html">Checkout</a>
-<a class="text-on-surface-variant text-label-sm px-4 py-2 hover:bg-surface-container-high transition-colors rounded-full" href="../order_status_track_your_meal/code.html">Orders</a>
+<a class="text-primary font-bold text-label-sm px-4 py-2 hover:bg-surface-container-high transition-colors rounded-full" data-route="/" href="/">Home</a>
+<a class="text-on-surface-variant text-label-sm px-4 py-2 hover:bg-surface-container-high transition-colors rounded-full" data-route="/menu" href="/menu">Menu</a>
+<a class="text-on-surface-variant text-label-sm px-4 py-2 hover:bg-surface-container-high transition-colors rounded-full" data-route="/checkout" href="/checkout">Checkout</a>
+<a class="text-on-surface-variant text-label-sm px-4 py-2 hover:bg-surface-container-high transition-colors rounded-full" data-route="/orders" href="/orders">Orders</a>
 </nav>
 </div>
 <div class="flex items-center gap-md">
-<a class="inline-flex items-center justify-center rounded-full bg-primary text-on-primary px-4 md:px-5 py-2.5 text-label-bold min-h-[44px] hover:shadow-lg transition-shadow" href="../menu_the_healthy_bear_cafe/code.html">Browse Menu</a>
+<a class="inline-flex items-center justify-center rounded-full bg-primary text-on-primary px-4 md:px-5 py-2.5 text-label-bold min-h-[44px] hover:shadow-lg transition-shadow" data-route="/menu" href="/menu">Browse Menu</a>
 </div>
 </header>
 <main class="pt-16 md:pt-20">
@@ -143,13 +152,13 @@
 <h1 class="text-display-lg-mobile md:text-[56px] md:leading-[64px] font-bold mb-lg tracking-tight">Fuel Your Mind</h1>
 <p class="text-body-lg md:text-[20px] md:leading-[30px] opacity-90 max-w-2xl mx-auto font-light">Providing a sophisticated space for students to nourish their bodies and focus their minds. Fresh ingredients, high-energy environment, and the finest coffee on campus.</p>
 <div class="mt-xl flex justify-center">
-<a class="bg-primary text-on-primary px-8 md:px-12 py-4 rounded-full font-bold text-body-lg min-h-[48px] inline-flex items-center justify-center hover:shadow-xl hover:scale-105 transition-all duration-300" href="../menu_the_healthy_bear_cafe/code.html">Order Now</a>
+<a class="bg-primary text-on-primary px-8 md:px-12 py-4 rounded-full font-bold text-body-lg min-h-[48px] inline-flex items-center justify-center hover:shadow-xl hover:scale-105 transition-all duration-300" data-route="/menu" href="/menu">Order Now</a>
 </div>
 </div>
 </section>
 <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-24 space-y-20 md:space-y-32">
 <section class="grid grid-cols-1 md:grid-cols-2 gap-lg md:gap-xl" id="services">
-<a class="group relative overflow-hidden rounded-2xl border border-outline-variant bg-surface hover:shadow-2xl transition-all duration-500 cursor-pointer p-lg md:p-xl" href="../menu_the_healthy_bear_cafe/code.html">
+<a class="group relative overflow-hidden rounded-2xl border border-outline-variant bg-surface hover:shadow-2xl transition-all duration-500 cursor-pointer p-lg md:p-xl" data-route="/menu" href="/menu">
 <div class="flex items-center gap-lg">
 <div class="w-16 h-16 rounded-2xl bg-primary-container flex items-center justify-center text-on-primary-container shadow-inner">
 <span class="material-symbols-outlined !text-[32px]">store</span>
@@ -161,7 +170,7 @@
 <span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </div>
 </a>
-<a class="group relative overflow-hidden rounded-2xl border border-outline-variant bg-surface hover:shadow-2xl transition-all duration-500 cursor-pointer p-lg md:p-xl" href="../menu_the_healthy_bear_cafe/code.html">
+<a class="group relative overflow-hidden rounded-2xl border border-outline-variant bg-surface hover:shadow-2xl transition-all duration-500 cursor-pointer p-lg md:p-xl" data-route="/menu" href="/menu">
 <div class="flex items-center gap-lg">
 <div class="w-16 h-16 rounded-2xl bg-secondary-container flex items-center justify-center text-on-secondary-container shadow-inner">
 <span class="material-symbols-outlined !text-[32px]">local_shipping</span>
@@ -178,9 +187,9 @@
 <div class="text-center mb-12 md:mb-16">
 <h2 class="text-display-lg text-on-surface mb-4">Today's Selection</h2>
 <div class="flex justify-center gap-sm md:gap-md flex-wrap">
-<a class="px-6 py-2 bg-primary text-on-primary rounded-full text-label-bold min-h-[44px] inline-flex items-center justify-center" href="../menu_the_healthy_bear_cafe/code.html">Breakfast</a>
-<a class="px-6 py-2 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full text-label-bold min-h-[44px] inline-flex items-center justify-center transition-colors" href="../menu_the_healthy_bear_cafe/code.html">Lunch</a>
-<a class="px-6 py-2 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full text-label-bold min-h-[44px] inline-flex items-center justify-center transition-colors" href="../menu_the_healthy_bear_cafe/code.html">Drinks</a>
+<a class="px-6 py-2 bg-primary text-on-primary rounded-full text-label-bold min-h-[44px] inline-flex items-center justify-center" data-route="/menu" href="/menu">Breakfast</a>
+<a class="px-6 py-2 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full text-label-bold min-h-[44px] inline-flex items-center justify-center transition-colors" data-route="/menu" href="/menu">Lunch</a>
+<a class="px-6 py-2 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full text-label-bold min-h-[44px] inline-flex items-center justify-center transition-colors" data-route="/menu" href="/menu">Drinks</a>
 </div>
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 xl:gap-x-24 gap-y-12">
@@ -279,7 +288,7 @@
 <span class="text-primary font-bold tracking-widest text-label-sm uppercase mb-4 block">The Connection</span>
 <h3 class="text-[32px] md:text-[40px] leading-tight font-bold text-on-surface mb-6">Arcade Zone</h3>
 <p class="text-body-lg text-on-surface-variant mb-8 leading-relaxed">Experience a high-score break between lectures. Our gaming lounge gives students a quick reset between classes, meals, and group study sessions.</p>
-<a class="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all" href="../menu_the_healthy_bear_cafe/code.html">Pair it with a quick order <span class="material-symbols-outlined">arrow_forward</span></a>
+<a class="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all" data-route="/menu" href="/menu">Pair it with a quick order <span class="material-symbols-outlined">arrow_forward</span></a>
 </div>
 </div>
 <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 group">
@@ -290,7 +299,7 @@
 <span class="text-primary font-bold tracking-widest text-label-sm uppercase mb-4 block">The Social Hub</span>
 <h3 class="text-[32px] md:text-[40px] leading-tight font-bold text-on-surface mb-6">Pool Lounge</h3>
 <p class="text-body-lg text-on-surface-variant mb-8 leading-relaxed">The ultimate destination for campus residents. Whether it's a casual frame or a tournament final, this is where meals, study breaks, and campus life come together.</p>
-<a class="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all" href="../menu_the_healthy_bear_cafe/code.html">See today&apos;s menu <span class="material-symbols-outlined">arrow_forward</span></a>
+<a class="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all" data-route="/menu" href="/menu">See today&apos;s menu <span class="material-symbols-outlined">arrow_forward</span></a>
 </div>
 </div>
 </div>
@@ -318,7 +327,7 @@
 <li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#todays-menu">Today&apos;s Specials</a></li>
 <li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#life-at-the-bear">Our Story</a></li>
 <li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#services">Campus Delivery Zones</a></li>
-<li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="../menu_the_healthy_bear_cafe/code.html">Student Discounts</a></li>
+<li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-route="/menu" href="/menu">Student Discounts</a></li>
 </ul>
 </div>
 <div>
@@ -340,5 +349,6 @@
 </div>
 </div>
 </footer>
+<script src="../scripts/main.js"></script>
 </body>
 </html>

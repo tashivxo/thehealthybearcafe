@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Home - The Healthy Bear Cafe</title>
+<script>
+        if (window.location.protocol !== 'file:') {
+            const base = document.createElement('base');
+            base.href = '/';
+            document.head.appendChild(base);
+        }
+    </script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="../styles/main.css" rel="stylesheet"/>
+<link href="../styles/components.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#e2e2e2",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#6bfe9c",
+                        "surface-bright": "#fbf9f8",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-primary-container": "#005027",
+                        "on-tertiary-container": "#444546",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e4e2e2",
+                        "primary-container": "#2ecc71",
+                        "on-secondary-container": "#646464",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f2f0f0",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "primary": "#006d37",
+                        "surface": "#fbf9f8",
+                        "outline-variant": "#bbcbbb",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#5d5f5f",
+                        "inverse-surface": "#303031",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#e2e2e2",
+                        "secondary-fixed-dim": "#c6c6c6",
+                        "error": "#ba1a1a",
+                        "on-background": "#1b1c1c",
+                        "inverse-primary": "#4ae183",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#005228",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "surface-container-highest": "#e4e2e2",
+                        "secondary": "#5e5e5e",
+                        "on-secondary-fixed-variant": "#474747",
+                        "on-secondary-fixed": "#1b1b1b",
+                        "surface-container-low": "#f5f3f3",
+                        "on-surface": "#1b1c1c",
+                        "tertiary-container": "#b2b3b3",
+                        "outline": "#6c7b6d",
+                        "surface-container-high": "#e9e8e7",
+                        "surface-container": "#efeded",
+                        "on-surface-variant": "#3d4a3e",
+                        "surface-tint": "#006d37",
+                        "background": "#fbf9f8",
+                        "primary-fixed-dim": "#4ae183",
+                        "on-primary-fixed": "#00210c",
+                        "secondary-fixed": "#e2e2e2",
+                        "surface-dim": "#dbdad9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "sm": "8px",
+                        "gutter": "16px",
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "48px",
+                        "unit": "4px",
+                        "lg": "24px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-bold": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                        "display-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .menu-dots {
+            flex-grow: 1;
+            border-bottom: 1px dotted #bbcbbb;
+            margin: 0 8px 5px 8px;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-md border-b border-outline-variant h-16 md:h-20 flex items-center px-margin-mobile md:px-margin-desktop justify-between">
+<div class="flex items-center gap-md md:gap-xl min-w-0">
+<img alt="The Healthy Bear Cafe Logo" class="h-10 md:h-12 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu1T8U4xbqyclXfq5Yp6mSnPkJWJcngxQ0NIt0sv3V8AGz7-FwpIDR-LXJ4xzkYcvWJ1LGtC6m9PQp0ASJMZaDNryj8N9Ci3cn4giNa0E8o5RAFfB4TxCWshyQ0YwxAkxzi4UOTAW0A2rzQmI-XEzWQoeF1cWt9iBMvDx8MNgHFDblPM3acgI2NVKzZc-Sl1dKACJdLQW0ihrRtTx0dPpKGyILgYrc9fb43tG_PkuAkPjLcG7ErUc57Jg4vrcVjYsauml4eVC74Vo"/>
+<nav class="hidden md:flex items-center gap-sm lg:gap-lg ml-2 lg:ml-4">
+<a class="text-primary font-bold text-label-sm px-4 py-2 hover:bg-surface-container-high transition-colors rounded-full" data-route="/" href="/">Home</a>
+<a class="text-on-surface-variant text-label-sm px-4 py-2 hover:bg-surface-container-high transition-colors rounded-full" data-route="/menu" href="/menu">Menu</a>
+<a class="text-on-surface-variant text-label-sm px-4 py-2 hover:bg-surface-container-high transition-colors rounded-full" data-route="/checkout" href="/checkout">Checkout</a>
+<a class="text-on-surface-variant text-label-sm px-4 py-2 hover:bg-surface-container-high transition-colors rounded-full" data-route="/orders" href="/orders">Orders</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<a class="inline-flex items-center justify-center rounded-full bg-primary text-on-primary px-4 md:px-5 py-2.5 text-label-bold min-h-[44px] hover:shadow-lg transition-shadow" data-route="/menu" href="/menu">Browse Menu</a>
+</div>
+</header>
+<main class="pt-16 md:pt-20">
+<section class="relative min-h-[520px] md:h-[650px] w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-black/40 z-10"></div>
+<img alt="Cafe atmosphere" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ug-C0FaQwlFGDiTMxxXL0tsrBoVKJKW5WDIxj-jm6ZrLwczqnOVuUp_WN43lyjl1E4NfT8TEGX1RxpfI0QVbdrRUSlWsXtB-wSHKxnkQT-GOT4iStC2r3Zo9Y0mqXOMQjsFnkxxHzTkYwCtn-A3KbZ_yAy73zieTU9kbyJrmnNdqXRnBgHdPwwBMjz9d81sYkmWWAr0lb8pX69cdWSsQmf6NJAKE3lxt0ySRmGWxfFtoXXpFRusqUOYFg"/>
+<div class="relative z-20 text-center text-white px-margin-mobile md:px-margin-desktop max-w-4xl py-20 md:py-0">
+<h1 class="text-display-lg-mobile md:text-[56px] md:leading-[64px] font-bold mb-lg tracking-tight">Fuel Your Mind</h1>
+<p class="text-body-lg md:text-[20px] md:leading-[30px] opacity-90 max-w-2xl mx-auto font-light">Providing a sophisticated space for students to nourish their bodies and focus their minds. Fresh ingredients, high-energy environment, and the finest coffee on campus.</p>
+<div class="mt-xl flex justify-center">
+<a class="bg-primary text-on-primary px-8 md:px-12 py-4 rounded-full font-bold text-body-lg min-h-[48px] inline-flex items-center justify-center hover:shadow-xl hover:scale-105 transition-all duration-300" data-route="/menu" href="/menu">Order Now</a>
+</div>
+</div>
+</section>
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-24 space-y-20 md:space-y-32">
+<section class="grid grid-cols-1 md:grid-cols-2 gap-lg md:gap-xl" id="services">
+<a class="group relative overflow-hidden rounded-2xl border border-outline-variant bg-surface hover:shadow-2xl transition-all duration-500 cursor-pointer p-lg md:p-xl" data-route="/menu" href="/menu">
+<div class="flex items-center gap-lg">
+<div class="w-16 h-16 rounded-2xl bg-primary-container flex items-center justify-center text-on-primary-container shadow-inner">
+<span class="material-symbols-outlined !text-[32px]">store</span>
+</div>
+<div class="flex-1">
+<h3 class="text-headline-sm text-on-surface mb-1">Pickup in Store</h3>
+<p class="text-body-sm text-on-surface-variant">Skip the line and grab your meal from the counter.</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</a>
+<a class="group relative overflow-hidden rounded-2xl border border-outline-variant bg-surface hover:shadow-2xl transition-all duration-500 cursor-pointer p-lg md:p-xl" data-route="/menu" href="/menu">
+<div class="flex items-center gap-lg">
+<div class="w-16 h-16 rounded-2xl bg-secondary-container flex items-center justify-center text-on-secondary-container shadow-inner">
+<span class="material-symbols-outlined !text-[32px]">local_shipping</span>
+</div>
+<div class="flex-1">
+<h3 class="text-headline-sm text-on-surface mb-1">Campus Delivery</h3>
+<p class="text-body-sm text-on-surface-variant">Browse the menu and place your next campus delivery order from the same flow.</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</a>
+</section>
+<section id="todays-menu">
+<div class="text-center mb-12 md:mb-16">
+<h2 class="text-display-lg text-on-surface mb-4">Today's Selection</h2>
+<div class="flex justify-center gap-sm md:gap-md flex-wrap">
+<a class="px-6 py-2 bg-primary text-on-primary rounded-full text-label-bold min-h-[44px] inline-flex items-center justify-center" data-route="/menu" href="/menu">Breakfast</a>
+<a class="px-6 py-2 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full text-label-bold min-h-[44px] inline-flex items-center justify-center transition-colors" data-route="/menu" href="/menu">Lunch</a>
+<a class="px-6 py-2 bg-surface-container text-on-surface-variant hover:bg-surface-container-high rounded-full text-label-bold min-h-[44px] inline-flex items-center justify-center transition-colors" data-route="/menu" href="/menu">Drinks</a>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 xl:gap-x-24 gap-y-12">
+<div class="space-y-8">
+<div class="border-b-2 border-primary w-12 mb-6"></div>
+<h3 class="text-label-bold text-primary tracking-[0.2em] uppercase">Fast Fuel</h3>
+<div class="space-y-6">
+<div class="flex items-end group">
+<div class="flex-1">
+<h4 class="text-body-lg font-semibold text-on-surface">Boerewors Roll</h4>
+<p class="text-body-sm text-on-surface-variant">Traditional spiced sausage in a fresh roll.</p>
+</div>
+<div class="menu-dots"></div>
+<span class="text-primary font-bold text-body-lg">R25.00</span>
+</div>
+<div class="flex items-end group">
+<div class="flex-1">
+<h4 class="text-body-lg font-semibold text-on-surface">Chicken Tramazeni</h4>
+<p class="text-body-sm text-on-surface-variant">Toasted pita bread with creamy mayo chicken.</p>
+</div>
+<div class="menu-dots"></div>
+<span class="text-primary font-bold text-body-lg">R38.00</span>
+</div>
+<div class="flex flex-col group">
+<div class="flex items-end">
+<h4 class="text-body-lg font-semibold text-on-surface">Hot Chips</h4>
+<div class="menu-dots"></div>
+</div>
+<div class="flex justify-between mt-1 px-2 text-on-surface-variant gap-2 flex-wrap">
+<span class="text-body-sm">Small <strong class="text-primary ml-1">R25</strong></span>
+<span class="text-body-sm">Medium <strong class="text-primary ml-1">R30</strong></span>
+<span class="text-body-sm">Large <strong class="text-primary ml-1">R35</strong></span>
+</div>
+</div>
+<div class="flex items-end group">
+<div class="flex-1">
+<h4 class="text-body-lg font-semibold text-on-surface">Chip Roll</h4>
+<p class="text-body-sm text-on-surface-variant">Crispy fries served in a buttered roll.</p>
+</div>
+<div class="menu-dots"></div>
+<span class="text-primary font-bold text-body-lg">R28.00</span>
+</div>
+</div>
+</div>
+<div class="space-y-8">
+<div class="border-b-2 border-primary w-12 mb-6"></div>
+<h3 class="text-label-bold text-primary tracking-[0.2em] uppercase">Fresh Picks</h3>
+<div class="space-y-6">
+<div class="flex items-end group">
+<div class="flex-1">
+<h4 class="text-body-lg font-semibold text-on-surface">Garden Wrap</h4>
+<p class="text-body-sm text-on-surface-variant">Fresh greens, avocado, and grilled halloumi.</p>
+</div>
+<div class="menu-dots"></div>
+<span class="text-primary font-bold text-body-lg">R38.00</span>
+</div>
+<div class="flex items-end group">
+<div class="flex-1">
+<h4 class="text-body-lg font-semibold text-on-surface">Panini</h4>
+<p class="text-body-sm text-on-surface-variant">Toasted sandwich with premium fillings.</p>
+</div>
+<div class="menu-dots"></div>
+<span class="text-primary font-bold text-body-lg">R30.00</span>
+</div>
+<div class="flex items-end group">
+<div class="flex-1">
+<h4 class="text-body-lg font-semibold text-on-surface">Gourmet Sandwich</h4>
+<p class="text-body-sm text-on-surface-variant">Artisan bread with fresh daily ingredients.</p>
+</div>
+<div class="menu-dots"></div>
+<span class="text-primary font-bold text-body-lg">R20.00</span>
+</div>
+<div class="flex items-end group">
+<div class="flex-1">
+<h4 class="text-body-lg font-semibold text-on-surface">Fresh Pies</h4>
+<p class="text-body-sm text-on-surface-variant">Flaky pastry with savory gourmet fillings.</p>
+</div>
+<div class="menu-dots"></div>
+<span class="text-primary font-bold text-body-lg">R25.00</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="life-at-the-bear">
+<div class="mb-12 md:mb-16">
+<h2 class="text-display-lg text-on-surface mb-2">Life at The Bear</h2>
+<p class="text-body-lg text-on-surface-variant">A sanctuary for connection and competition.</p>
+</div>
+<div class="grid grid-cols-1 gap-12 md:gap-16">
+<div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 group">
+<div class="w-full md:w-3/5 h-[320px] md:h-[500px] overflow-hidden rounded-[2rem] shadow-2xl">
+<img alt="Arcade Zone" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/ADBb0ujFmbn8cNZYcurkM9FcZ-2EvCJ8T9V1ynxjm52cwlrh7SitCJkk-byJ_YU_nOnD23ZcVGXmXzRZyMCcPxws5-CTXeTP7ktmMLwNmd0AWefHP9qh0AMyhzCPkAp14bOeWJ1llHHqMm3gvfdSkndqT6vV0l4QJFsxc_oY56kHAi-Y_HBK2eQaILCWQDvAu4ucxr1lE82owDLTJOoQ45v_cefEi6LzzIcOFOeAq680cLY4CceqN0VRGh5Dtg"/>
+</div>
+<div class="w-full md:w-2/5 md:pr-4">
+<span class="text-primary font-bold tracking-widest text-label-sm uppercase mb-4 block">The Connection</span>
+<h3 class="text-[32px] md:text-[40px] leading-tight font-bold text-on-surface mb-6">Arcade Zone</h3>
+<p class="text-body-lg text-on-surface-variant mb-8 leading-relaxed">Experience a high-score break between lectures. Our gaming lounge gives students a quick reset between classes, meals, and group study sessions.</p>
+<a class="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all" data-route="/menu" href="/menu">Pair it with a quick order <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+</div>
+<div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 group">
+<div class="w-full md:w-3/5 h-[320px] md:h-[500px] overflow-hidden rounded-[2rem] shadow-2xl">
+<img alt="Pool Lounge" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/ADBb0uhGBBlqd530DGTxpCzwurEfP8F8JZzSQCLcbv8LdlII6UnKDTDcLucgX_htS_LgB5YGnWIEWFEltfii-_5EyTW4Y0DvHYg9AjasZfE9Z42wxj61jSA_NBteZKM7KRRae4UhHraUpuRnq-7RosdRpic4PcC-hOTPdQRCattqKWG4hb8nr1w0NaL4QRxKZrnsluIxsSQliN-hwd-t4MlGh4bxzhGGZpP7G9g0T65PQ9obve_5FPLA40DicdQ"/>
+</div>
+<div class="w-full md:w-2/5 md:pl-4">
+<span class="text-primary font-bold tracking-widest text-label-sm uppercase mb-4 block">The Social Hub</span>
+<h3 class="text-[32px] md:text-[40px] leading-tight font-bold text-on-surface mb-6">Pool Lounge</h3>
+<p class="text-body-lg text-on-surface-variant mb-8 leading-relaxed">The ultimate destination for campus residents. Whether it's a casual frame or a tournament final, this is where meals, study breaks, and campus life come together.</p>
+<a class="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all" data-route="/menu" href="/menu">See today&apos;s menu <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<footer class="bg-surface-container-low border-t border-outline-variant pt-16 md:pt-24 pb-12" id="support">
+<div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-xl mb-16">
+<div class="col-span-1 md:col-span-2">
+<img alt="Logo" class="h-16 w-auto mb-8 grayscale hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu1T8U4xbqyclXfq5Yp6mSnPkJWJcngxQ0NIt0sv3V8AGz7-FwpIDR-LXJ4xzkYcvWJ1LGtC6m9PQp0ASJMZaDNryj8N9Ci3cn4giNa0E8o5RAFfB4TxCWshyQ0YwxAkxzi4UOTAW0A2rzQmI-XEzWQoeF1cWt9iBMvDx8MNgHFDblPM3acgI2NVKzZc-Sl1dKACJdLQW0ihrRtTx0dPpKGyILgYrc9fb43tG_PkuAkPjLcG7ErUc57Jg4vrcVjYsauml4eVC74Vo"/>
+<p class="text-body-lg text-on-surface-variant max-w-sm mb-lg">A student-focused digital dining experience designed for modern campus life. Quality food, fast ordering, and spaces to thrive.</p>
+<div class="flex gap-md">
+<a aria-label="Jump to today's menu" class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all" href="#todays-menu">
+<span class="material-symbols-outlined !text-[20px]">restaurant_menu</span>
+</a>
+<a aria-label="Jump to support" class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all" href="#support">
+<span class="material-symbols-outlined !text-[20px]">support_agent</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-label-bold text-on-surface tracking-widest mb-8 uppercase">Quick Links</h4>
+<ul class="space-y-4">
+<li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#todays-menu">Today&apos;s Specials</a></li>
+<li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#life-at-the-bear">Our Story</a></li>
+<li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#services">Campus Delivery Zones</a></li>
+<li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-route="/menu" href="/menu">Student Discounts</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-label-bold text-on-surface tracking-widest mb-8 uppercase">Support</h4>
+<ul class="space-y-4">
+<li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#support">Help Center</a></li>
+<li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#support">Privacy Policy</a></li>
+<li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#support">Contact Us</a></li>
+<li><a class="text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#support">Feedback</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-md text-label-sm text-on-surface-variant">
+<span>© 2024 The Healthy Bear Cafe. Artisan Campus Dining.</span>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined !text-[16px] text-primary">eco</span>
+<span class="font-medium">Sustainable Campus Partner</span>
+</div>
+</div>
+</div>
+</footer>
+<script src="../scripts/main.js"></script>
+</body>
+</html>

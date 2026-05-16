@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Healthy Bear Cafe - Menu</title>
+<script>
+                if (window.location.protocol !== 'file:') {
+                        const base = document.createElement('base');
+                        base.href = '/src/pages/';
+                        document.head.appendChild(base);
+                }
+        </script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="../styles/main.css" rel="stylesheet"/>
+<link href="../styles/components.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface-variant": "#3d4a3e",
+                      "on-tertiary-container": "#444546",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed": "#1b1b1b",
+                      "surface-bright": "#fbf9f8",
+                      "surface-container-high": "#e9e8e7",
+                      "on-secondary-container": "#646464",
+                      "inverse-primary": "#4ae183",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-surface": "#303031",
+                      "surface-variant": "#e4e2e2",
+                      "on-surface": "#1b1c1c",
+                      "secondary-fixed-dim": "#c6c6c6",
+                      "on-primary": "#ffffff",
+                      "on-background": "#1b1c1c",
+                      "tertiary-fixed-dim": "#c6c6c7",
+                      "surface-container": "#efeded",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed": "#e2e2e2",
+                      "surface-container-highest": "#e4e2e2",
+                      "surface": "#fbf9f8",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed-variant": "#005228",
+                      "primary-container": "#2ecc71",
+                      "surface-tint": "#006d37",
+                      "error": "#ba1a1a",
+                      "tertiary": "#5d5f5f",
+                      "tertiary-container": "#b2b3b3",
+                      "on-tertiary-fixed-variant": "#454747",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed": "#00210c",
+                      "background": "#fbf9f8",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed": "#1a1c1c",
+                      "primary-fixed": "#6bfe9c",
+                      "primary": "#006d37",
+                      "primary-fixed-dim": "#4ae183",
+                      "secondary-container": "#e2e2e2",
+                      "secondary": "#5e5e5e",
+                      "outline": "#6c7b6d",
+                      "inverse-on-surface": "#f2f0f0",
+                      "on-primary-container": "#005027",
+                      "surface-dim": "#dbdad9",
+                      "outline-variant": "#bbcbbb",
+                      "on-secondary-fixed-variant": "#474747",
+                      "surface-container-low": "#f5f3f3",
+                      "tertiary-fixed": "#e2e2e2"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "48px",
+                      "lg": "24px",
+                      "xl": "32px",
+                      "md": "16px",
+                      "margin-mobile": "16px",
+                      "gutter": "16px",
+                      "unit": "4px",
+                      "xs": "4px",
+                      "sm": "8px"
+              },
+              "fontFamily": {
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "label-bold": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-sm": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-bold": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "34px",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background pb-32" data-page="menu-grid">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline flex justify-between items-center px-margin-mobile h-14">
+<div class="flex items-center gap-sm">
+<button class="text-primary dark:text-inverse-primary hover:bg-surface-container-high dark:hover:bg-on-surface-variant p-2 rounded-full" data-action="navigate" data-href="/menu/list" type="button">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<span class="text-headline-sm-mobile font-headline-sm font-bold text-primary dark:text-inverse-primary">The Healthy Bear Cafe</span>
+</div>
+<div>
+<img alt="User profile photo" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOcV4kogmBtmZv2UFkUNsKmq0B36okreFL5dw80VGdV0OVCce9MZviUigfP6jnOB7jRG32npyG_8PWfcJB5LS0nYySap8plEzz41QRQVT5lbGT7NZz0aejKPRNZaB_YOynmKUUuPAgTVP51tKu8YyyZHTmaAbB42bcoVbaAPllgNS2crrsmQ-avp6weqGPHIXA2ogXZpzZXbGtPMXiY7MaQGh69ymR9stkDT2OIt7aa06ALYImn1HT4Xhs0DiCoR3Hezsc5UCseCQ"/>
+</div>
+</header>
+<main class="pt-20 px-margin-mobile md:px-margin-desktop max-w-[1200px] mx-auto">
+<!-- Hero Logo Section -->
+<div class="flex justify-center mb-xl">
+<img class="w-full max-w-sm rounded-xl object-cover aspect-[4/3] shadow-sm border border-outline-variant" data-alt="A high-quality, brightly lit photograph showing the logo and branding of a modern collegiate cafe named 'The Healthy Bear Cafe'. The setting is clean, minimal, and inviting, utilizing a color palette of crisp whites, subtle grays, and vibrant green accents to match the minimalist, student-friendly 'Ursine Fresh' design system. The lighting is soft and natural, creating a fresh and appetizing atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKFu99JedBff5QRQNIgXhAFB4I1XO-5mX9BnjGltRtkaSvUZcvp0HmaoVK8-t38L32Ld5EWPvbj7wyOaE0nVo7O9AjIZz2n5SPaPTgu4iO2De7hiukaQolvqvS2cMjxFmVRFY-WZzZNmALPt2P5sIMoZ0KaRT3mFe56xVX8-xTcyIP75V0SWACVT1vs6ECCfpLP9vGuo6QbGSEkEETtN0IJ4RCs_LvlhvKebJULEFb_80x8rK07uyF-fsiHYeTlE-CcBtte6Kprkg"/>
+</div>
+<!-- Categories / Chips -->
+<div class="flex overflow-x-auto gap-sm pb-sm mb-xl no-scrollbar" data-filter-group>
+<button class="flex-shrink-0 bg-on-surface text-surface rounded-full px-4 py-2 text-label-bold font-label-bold" data-filter="all" type="button">Popular Items</button>
+<button class="flex-shrink-0 bg-surface-container text-on-surface-variant rounded-full px-4 py-2 text-label-bold font-label-bold border border-outline-variant" data-filter="meals" type="button">Meals</button>
+<button class="flex-shrink-0 bg-surface-container text-on-surface-variant rounded-full px-4 py-2 text-label-bold font-label-bold border border-outline-variant" data-filter="snacks" type="button">Quick Snacks</button>
+</div>
+<!-- Menu Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md">
+<!-- Product Card: Panini -->
+<div class="bg-surface rounded-xl border border-surface-variant overflow-hidden flex flex-col hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow" data-categories="popular meals">
+<div class="h-40 bg-surface-container-high relative">
+<img alt="Panini" class="w-full h-full object-cover" data-alt="A mouth-watering, close-up photograph of a freshly toasted panini sandwich cut in half, revealing melted cheese and fresh fillings. The panini rests on a clean, modern white plate against a light, minimalist background. The lighting is bright and appetizing, consistent with a clean, student-friendly cafe environment. The overall tone is fresh, vibrant, and highly appealing, emphasizing the quality of the food." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQl6eJ5_2jpO9r5PC5XEmF7bf3udQu8OfEAMuJGzx5Uk9t8o6OnVFjjR7xFtblRH9ddUUSWl-67sFLXPNn6xB43i7OBrpDXwrO_6_AHxySpvXMAegx5oMu_JxqXchQMVbV8w_ltFT-t4zGhxAqkaAdiBcJz3gbLd8MQaMGNaVFc5RdKhrT7Zdfp14pAqe79H5tR_vbqVDuBrOkw0paNrtrJJW7RuRr23d6xsyVppH03VH6VxMrhB2FWOjRko1fUy0VA-uEm9oZUQk"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-xs">Panini</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-md flex-grow">Freshly toasted with your choice of fillings.</p>
+<div class="flex justify-between items-center mt-auto">
+<span class="text-label-bold font-label-bold text-primary">R30</span>
+<button class="bg-primary text-on-primary rounded-full px-4 py-2 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center" data-action="add-to-cart" data-id="panini" data-name="Panini" data-price="30" type="button">Add to Cart</button>
+</div>
+</div>
+</div>
+<!-- Product Card: Hot Chips -->
+<div class="bg-surface rounded-xl border border-surface-variant overflow-hidden flex flex-col hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow" data-categories="popular snacks">
+<div class="h-40 bg-surface-container-high relative">
+<img alt="Hot Chips" class="w-full h-full object-cover" data-alt="A top-down, high-resolution photo of a generous portion of golden, crispy hot chips served in a simple, modern white bowl or paper cone. The setting is clean and minimalist, with a bright, airy lighting setup that highlights the texture of the chips. The background is a soft, neutral tone, ensuring the focus remains entirely on the appealing snack, fitting perfectly into a clean, contemporary cafe aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6gLggtd1YOWQfp7drQ0B3u8xsW3LeLrNisH7Cdc5_uvQnJO9ZwrbHYp_U7aHtIVMR10I1p8oeMQryKV2chEUlukYj4fcWazjn-_NS9kjGzD6k2-0Bqwvq36az8c27NU9r11YlUrSxXeN6FVXKaj94WUBHYdG-9C-6h5xi0sqoTZSpEEsHklMzNNZyj-dAx_Eh-BCmXBxaDX8BTMRWLDrfuKI0uphF0h0QpKpqZN4Aa7GIdMYdKFPHDfwYemKPLXf_oaLezjdH52s"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-xs">Hot Chips</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-md flex-grow">Crispy golden fries. S or L.</p>
+<div class="flex justify-between items-center mt-auto">
+<div class="flex flex-col">
+<span class="text-label-bold font-label-bold text-primary">S: R25</span>
+<span class="text-label-bold font-label-bold text-primary">L: R35</span>
+</div>
+<button class="bg-primary text-on-primary rounded-full px-4 py-2 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center" data-action="add-to-cart" data-id="hot-chips-large" data-name="Hot Chips" data-price="35" type="button">Add to Cart</button>
+</div>
+</div>
+</div>
+<!-- Product Card: Wings + Chips -->
+<div class="bg-surface rounded-xl border border-surface-variant overflow-hidden flex flex-col hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow" data-categories="popular meals">
+<div class="h-40 bg-surface-container-high relative">
+<img alt="Wings + Chips" class="w-full h-full object-cover" data-alt="A close-up, appetizing shot of crispy fried chicken wings served alongside a portion of golden hot chips on a clean, modern plate. The lighting is bright and inviting, casting soft shadows that emphasize the crunchy texture of the wings and fries. The background is minimal and uncluttered, adhering to a fresh, student-friendly cafe aesthetic with subtle hints of green in the styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANVTUa1FK1eX9j2saxp9act3W7XI82BwBWCdtoZuNDG2F0tA5gM7ztfi_vjXBczlDSRj5Wzt9ka2S4PTE2YEEjSlVdJujSqDAwAduweEZgAKOrBHcHwseEmsj9p52CdPcCcSmi3FDvF_uG76hZ0y46vVDBiw-8lLFmc9YDj2g5ALnCKCexBqBMmVql_r6OF7keEnAr_T_ZYKMapfchpeE-LqxplDoDqiDAdQ6Kn_He8x7L7acCFhQL6op-P7A8eKULm0y7mg6ZVXc"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-xs">Wings + Chips</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-md flex-grow">Crispy wings served with a side of hot chips.</p>
+<div class="flex justify-between items-center mt-auto">
+<span class="text-label-bold font-label-bold text-primary">R40</span>
+<button class="bg-primary text-on-primary rounded-full px-4 py-2 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center" data-action="add-to-cart" data-id="wings-chips" data-name="Wings + Chips" data-price="40" type="button">Add to Cart</button>
+</div>
+</div>
+</div>
+<!-- Product Card: Boerewors -->
+<div class="bg-surface rounded-xl border border-surface-variant overflow-hidden flex flex-col hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow" data-categories="popular meals">
+<div class="h-40 bg-surface-container-high relative">
+<img alt="Boerewors" class="w-full h-full object-cover" data-alt="A high-quality food photograph of a freshly grilled Boerewors roll, served in a soft bun with minimalistic garnishes. The setting is clean and modern, lit with bright, natural-looking light that highlights the juiciness of the sausage. The composition is simple, set against a neutral, light-colored background to align with a fresh, contemporary cafe brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkQxSylqc_1RBG3tSoK-8Iz-YyxWJj-L54j60y-XOY16d-inohhCmCPKO1ym2T7x-iEbbSYj5U9xQG--Na5fVA8DavRj9s5mYmBARW9mKbUbUVSuScE2KuXJpzvnSw6q34bCBl0l21JmkOyPLmPcpTj5bMGM6rxGRP-jSTTqtqByoXWmuFU_jmehy2H_t5RQ-TF1RBO5COWEdj0dWf1Pd1CM3J6D8d59MlvsdrVUz5LrrvmAcFsP6E6pbjs74UWwbF4ybYEEPfZ-g"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-xs">Boerewors</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-md flex-grow">Traditional South African sausage on a roll.</p>
+<div class="flex justify-between items-center mt-auto">
+<span class="text-label-bold font-label-bold text-primary">R25</span>
+<button class="bg-primary text-on-primary rounded-full px-4 py-2 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center" data-action="add-to-cart" data-id="boerewors-roll" data-name="Boerewors" data-price="25" type="button">Add to Cart</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Persistent Bottom Bar (Cart Checkout) -->
+<div class="fixed bottom-[72px] left-0 w-full px-margin-mobile md:px-margin-desktop z-40" id="cart-bar">
+<div class="max-w-[1200px] mx-auto">
+<div class="bg-surface border border-outline-variant rounded-xl shadow-lg p-md flex justify-between items-center">
+<div class="flex flex-col">
+<span class="text-body-sm font-body-sm text-on-surface-variant" id="cart-count-label">Cart (0 items)</span>
+<span class="text-headline-sm font-headline-sm text-on-surface font-bold" id="cart-total-label">R0</span>
+</div>
+<button class="bg-primary text-on-primary rounded-lg px-6 py-3 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed" data-action="checkout" data-href="/checkout" type="button">
+<span>Checkout</span>
+<span class="material-symbols-outlined" data-icon="chevron_right" style="font-variation-settings: 'FILL' 0;">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface dark:bg-inverse-surface border-t border-outline-variant dark:border-outline md:hidden rounded-t-xl shadow-sm">
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 scale-95 transition-transform duration-200" data-route="/menu" href="/menu">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="text-label-sm font-label-sm mt-1">Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-container dark:hover:bg-on-surface-variant rounded-full" data-route="/checkout" href="/checkout">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-label-sm font-label-sm mt-1">Cart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-container dark:hover:bg-on-surface-variant rounded-full" data-route="/orders" href="/orders">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="text-label-sm font-label-sm mt-1">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-container dark:hover:bg-on-surface-variant rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm mt-1">Profile</span>
+</a>
+</nav>
+<style>
+        /* Hide scrollbar for category chips */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+<script src="../scripts/main.js"></script>
+</body></html>
