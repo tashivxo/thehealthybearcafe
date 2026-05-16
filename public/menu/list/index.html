@@ -12,8 +12,8 @@
   }
 </script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="../styles/main.css" rel="stylesheet"/>
-<link href="../styles/components.css" rel="stylesheet"/>
+<link href="../../styles/main.css" rel="stylesheet"/>
+<link href="../../styles/components.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
@@ -120,19 +120,27 @@
 <body class="bg-background text-on-background pb-36" data-page="menu-list">
 
 <!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant flex justify-between items-center px-margin-mobile h-14">
-  <div class="flex items-center gap-sm">
-    <button class="text-primary hover:bg-surface-container-high p-2 rounded-full" data-action="navigate" data-href="/menu" type="button">
-      <span class="material-symbols-outlined">menu</span>
-    </button>
-    <span class="text-headline-sm font-headline-sm font-bold text-primary">The Healthy Bear Cafe</span>
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant px-margin-mobile py-sm shadow-sm">
+  <div class="max-w-[1200px] mx-auto flex items-center justify-between gap-md h-10">
+    <div class="flex items-center gap-sm min-w-0">
+      <button class="text-primary hover:bg-surface-container-high p-2 rounded-full" data-action="navigate" data-href="/menu" type="button">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <span class="text-headline-sm font-headline-sm font-bold text-primary truncate">The Healthy Bear Cafe</span>
+    </div>
+    <div class="shrink-0">
+      <img alt="Profile" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOcV4kogmBtmZv2UFkUNsKmq0B36okreFL5dw80VGdV0OVCce9MZviUigfP6jnOB7jRG32npyG_8PWfcJB5LS0nYySap8plEzz41QRQVT5lbGT7NZz0aejKPRNZaB_YOynmKUUuPAgTVP51tKu8YyyZHTmaAbB42bcoVbaAPllgNS2crrsmQ-avp6weqGPHIXA2ogXZpzZXbGtPMXiY7MaQGh69ymR9stkDT2OIt7aa06ALYImn1HT4Xhs0DiCoR3Hezsc5UCseCQ"/>
+    </div>
   </div>
-  <div>
-    <img alt="Profile" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOcV4kogmBtmZv2UFkUNsKmq0B36okreFL5dw80VGdV0OVCce9MZviUigfP6jnOB7jRG32npyG_8PWfcJB5LS0nYySap8plEzz41QRQVT5lbGT7NZz0aejKPRNZaB_YOynmKUUuPAgTVP51tKu8YyyZHTmaAbB42bcoVbaAPllgNS2crrsmQ-avp6weqGPHIXA2ogXZpzZXbGtPMXiY7MaQGh69ymR9stkDT2OIt7aa06ALYImn1HT4Xhs0DiCoR3Hezsc5UCseCQ"/>
-  </div>
+  <nav aria-label="Primary" class="max-w-[1200px] mx-auto mt-sm flex items-center gap-xs overflow-x-auto no-scrollbar">
+    <a aria-label="Home" class="rounded-full border border-outline-variant bg-surface-container-low px-4 py-2 text-label-sm font-label-sm text-on-surface-variant transition-colors hover:bg-surface-container-high hover:text-on-surface whitespace-nowrap" data-route="/" href="/">Home</a>
+    <a aria-current="page" aria-label="Menu" class="rounded-full bg-primary px-4 py-2 text-label-sm font-label-sm text-on-primary shadow-sm whitespace-nowrap" data-route="/menu" href="/menu">Menu</a>
+    <a aria-label="Checkout" class="rounded-full border border-outline-variant bg-surface-container-low px-4 py-2 text-label-sm font-label-sm text-on-surface-variant transition-colors hover:bg-surface-container-high hover:text-on-surface whitespace-nowrap" data-route="/checkout" href="/checkout">Checkout</a>
+    <a aria-label="Orders" class="rounded-full border border-outline-variant bg-surface-container-low px-4 py-2 text-label-sm font-label-sm text-on-surface-variant transition-colors hover:bg-surface-container-high hover:text-on-surface whitespace-nowrap" data-route="/orders" href="/orders">Orders</a>
+  </nav>
 </header>
 
-<main class="pt-20 px-margin-mobile md:px-margin-desktop max-w-[1200px] mx-auto">
+<main class="pt-32 px-margin-mobile md:px-margin-desktop max-w-[1200px] mx-auto">
 
   <!-- Category Chips -->
   <div class="flex overflow-x-auto gap-sm pb-sm mb-xl no-scrollbar" data-filter-group>
@@ -330,7 +338,7 @@
   </a>
 </nav>
 
-<script src="../scripts/main.js"></script>
+<script src="../../scripts/main.js"></script>
 
 </body>
 </html>

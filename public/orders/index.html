@@ -119,17 +119,25 @@
   </style>
   </head>
 <body class="bg-surface text-on-surface min-h-screen font-body-lg flex flex-col md:max-w-[1200px] md:mx-auto" data-page="order-status">
-<!-- Header (Suppressed navigation, showing close intent) -->
-<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-14 bg-surface border-b border-outline-variant">
-<div class="flex items-center gap-sm">
+<!-- Header -->
+<header class="w-full bg-surface border-b border-outline-variant px-margin-mobile md:px-margin-desktop py-sm shadow-sm">
+<div class="max-w-[1200px] mx-auto flex justify-between items-center gap-md h-10">
+<div class="flex items-center gap-sm min-w-0">
 <span class="material-symbols-outlined text-primary text-[24px]">restaurant_menu</span>
-<span class="text-headline-sm-mobile md:text-headline-sm font-headline-sm font-bold text-primary">The Healthy Bear Cafe</span>
+<span class="text-headline-sm-mobile md:text-headline-sm font-headline-sm font-bold text-primary truncate">The Healthy Bear Cafe</span>
 </div>
-<button class="p-xs rounded-full hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center" data-action="navigate" data-href="/menu" id="close-button" type="button">
+<button class="p-xs rounded-full hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0" data-action="navigate" data-href="/menu" id="close-button" type="button">
 <span class="material-symbols-outlined" data-icon="close">close</span>
 </button>
+</div>
+<nav aria-label="Primary" class="max-w-[1200px] mx-auto mt-sm flex items-center gap-xs overflow-x-auto no-scrollbar">
+<a aria-label="Home" class="rounded-full border border-outline-variant bg-surface-container-low px-4 py-2 text-label-sm font-label-sm text-on-surface-variant transition-colors hover:bg-surface-container-high hover:text-on-surface whitespace-nowrap" data-route="/" href="/">Home</a>
+<a aria-label="Menu" class="rounded-full border border-outline-variant bg-surface-container-low px-4 py-2 text-label-sm font-label-sm text-on-surface-variant transition-colors hover:bg-surface-container-high hover:text-on-surface whitespace-nowrap" data-route="/menu" href="/menu">Menu</a>
+<a aria-label="Checkout" class="rounded-full border border-outline-variant bg-surface-container-low px-4 py-2 text-label-sm font-label-sm text-on-surface-variant transition-colors hover:bg-surface-container-high hover:text-on-surface whitespace-nowrap" data-route="/checkout" href="/checkout">Checkout</a>
+<a aria-current="page" aria-label="Orders" class="rounded-full bg-primary px-4 py-2 text-label-sm font-label-sm text-on-primary shadow-sm whitespace-nowrap" data-route="/orders" href="/orders">Orders</a>
+</nav>
 </header>
-<main class="flex-grow flex flex-col items-center px-margin-mobile md:px-margin-desktop py-xl md:py-20">
+<main class="flex-grow flex flex-col items-center px-margin-mobile md:px-margin-desktop py-xl md:py-20 pt-10 md:pt-16">
 <!-- Success Animation/Icon Area -->
 <div class="w-24 h-24 rounded-full bg-primary-container flex items-center justify-center mb-lg">
 <span class="material-symbols-outlined text-primary text-[48px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>

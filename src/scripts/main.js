@@ -1,7 +1,14 @@
 (function () {
   const CART_KEY = "thbc_cart_v1";
   const ORDER_KEY = "thbc_last_order_v1";
-  const FILE_ROUTE_MAP = {
+  const PUBLIC_FILE_ROUTE_MAP = {
+    "/": "/index.html",
+    "/menu": "/menu/index.html",
+    "/menu/list": "/menu/list/index.html",
+    "/checkout": "/checkout/index.html",
+    "/orders": "/orders/index.html"
+  };
+  const SOURCE_FILE_ROUTE_MAP = {
     "/": "./index.html",
     "/menu": "./menu.html",
     "/menu/list": "./menu-list.html",
@@ -9,13 +16,45 @@
     "/orders": "./orders.html"
   };
 
+  function getFileRouteRoot() {
+    const normalizedPath = window.location.pathname.replace(/\\/g, "/");
+
+    if (normalizedPath.includes("/public/")) {
+      const [prefix] = normalizedPath.split("/public/");
+      return {
+        root: `${prefix}/public`,
+        map: PUBLIC_FILE_ROUTE_MAP
+      };
+    }
+
+    if (normalizedPath.includes("/src/pages/")) {
+      const [prefix] = normalizedPath.split("/src/pages/");
+      return {
+        root: `${prefix}/src/pages`,
+        map: SOURCE_FILE_ROUTE_MAP
+      };
+    }
+
+    return null;
+  }
+
   function resolveRoute(path) {
     if (!path) {
       return path;
     }
 
     if (window.location.protocol === "file:") {
-      return FILE_ROUTE_MAP[path] || path;
+      const fileRouteRoot = getFileRouteRoot();
+      if (!fileRouteRoot) {
+        return path;
+      }
+
+      const targetPath = fileRouteRoot.map[path];
+      if (!targetPath) {
+        return path;
+      }
+
+      return new URL(targetPath.replace(/^\//, ""), `file://${fileRouteRoot.root}/`).href;
     }
 
     return path;

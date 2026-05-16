@@ -181,18 +181,26 @@
 </head>
 <body class="bg-background text-on-background pb-32" data-page="menu-grid">
 <!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline flex justify-between items-center px-margin-mobile h-14">
-<div class="flex items-center gap-sm">
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline px-margin-mobile py-sm shadow-sm">
+<div class="max-w-[1200px] mx-auto flex items-center justify-between gap-md h-10">
+<div class="flex items-center gap-sm min-w-0">
 <button class="text-primary dark:text-inverse-primary hover:bg-surface-container-high dark:hover:bg-on-surface-variant p-2 rounded-full" data-action="navigate" data-href="/menu/list" type="button">
 <span class="material-symbols-outlined" data-icon="menu">menu</span>
 </button>
-<span class="text-headline-sm-mobile font-headline-sm font-bold text-primary dark:text-inverse-primary">The Healthy Bear Cafe</span>
+<span class="text-headline-sm-mobile font-headline-sm font-bold text-primary dark:text-inverse-primary truncate">The Healthy Bear Cafe</span>
 </div>
-<div>
+<div class="shrink-0">
 <img alt="User profile photo" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOcV4kogmBtmZv2UFkUNsKmq0B36okreFL5dw80VGdV0OVCce9MZviUigfP6jnOB7jRG32npyG_8PWfcJB5LS0nYySap8plEzz41QRQVT5lbGT7NZz0aejKPRNZaB_YOynmKUUuPAgTVP51tKu8YyyZHTmaAbB42bcoVbaAPllgNS2crrsmQ-avp6weqGPHIXA2ogXZpzZXbGtPMXiY7MaQGh69ymR9stkDT2OIt7aa06ALYImn1HT4Xhs0DiCoR3Hezsc5UCseCQ"/>
 </div>
+</div>
+<nav aria-label="Primary" class="max-w-[1200px] mx-auto mt-sm flex items-center gap-xs overflow-x-auto no-scrollbar">
+<a aria-label="Home" class="rounded-full border border-outline-variant bg-surface-container-low px-4 py-2 text-label-sm font-label-sm text-on-surface-variant transition-colors hover:bg-surface-container-high hover:text-on-surface whitespace-nowrap" data-route="/" href="/">Home</a>
+<a aria-current="page" aria-label="Menu" class="rounded-full bg-primary px-4 py-2 text-label-sm font-label-sm text-on-primary shadow-sm whitespace-nowrap" data-route="/menu" href="/menu">Menu</a>
+<a aria-label="Checkout" class="rounded-full border border-outline-variant bg-surface-container-low px-4 py-2 text-label-sm font-label-sm text-on-surface-variant transition-colors hover:bg-surface-container-high hover:text-on-surface whitespace-nowrap" data-route="/checkout" href="/checkout">Checkout</a>
+<a aria-label="Orders" class="rounded-full border border-outline-variant bg-surface-container-low px-4 py-2 text-label-sm font-label-sm text-on-surface-variant transition-colors hover:bg-surface-container-high hover:text-on-surface whitespace-nowrap" data-route="/orders" href="/orders">Orders</a>
+</nav>
 </header>
-<main class="pt-20 px-margin-mobile md:px-margin-desktop max-w-[1200px] mx-auto">
+<main class="pt-32 px-margin-mobile md:px-margin-desktop max-w-[1200px] mx-auto">
 <!-- Hero Logo Section -->
 <div class="flex justify-center mb-xl">
 <img class="w-full max-w-sm rounded-xl object-cover aspect-[4/3] shadow-sm border border-outline-variant" data-alt="A high-quality, brightly lit photograph showing the logo and branding of a modern collegiate cafe named 'The Healthy Bear Cafe'. The setting is clean, minimal, and inviting, utilizing a color palette of crisp whites, subtle grays, and vibrant green accents to match the minimalist, student-friendly 'Ursine Fresh' design system. The lighting is soft and natural, creating a fresh and appetizing atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKFu99JedBff5QRQNIgXhAFB4I1XO-5mX9BnjGltRtkaSvUZcvp0HmaoVK8-t38L32Ld5EWPvbj7wyOaE0nVo7O9AjIZz2n5SPaPTgu4iO2De7hiukaQolvqvS2cMjxFmVRFY-WZzZNmALPt2P5sIMoZ0KaRT3mFe56xVX8-xTcyIP75V0SWACVT1vs6ECCfpLP9vGuo6QbGSEkEETtN0IJ4RCs_LvlhvKebJULEFb_80x8rK07uyF-fsiHYeTlE-CcBtte6Kprkg"/>
