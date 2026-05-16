@@ -170,11 +170,11 @@
         }
     </script>
 </head>
-<body class="bg-background text-on-background pb-32">
+<body class="bg-background text-on-background pb-32" data-page="menu-grid">
 <!-- TopAppBar -->
 <header class="fixed top-0 w-full z-50 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline flex justify-between items-center px-margin-mobile h-14">
 <div class="flex items-center gap-sm">
-<button class="text-primary dark:text-inverse-primary hover:bg-surface-container-high dark:hover:bg-on-surface-variant p-2 rounded-full">
+<button class="text-primary dark:text-inverse-primary hover:bg-surface-container-high dark:hover:bg-on-surface-variant p-2 rounded-full" data-action="navigate" data-href="../menu_list_view/code.html" type="button">
 <span class="material-symbols-outlined" data-icon="menu">menu</span>
 </button>
 <span class="text-headline-sm-mobile font-headline-sm font-bold text-primary dark:text-inverse-primary">The Healthy Bear Cafe</span>
@@ -189,15 +189,15 @@
 <img class="w-full max-w-sm rounded-xl object-cover aspect-[4/3] shadow-sm border border-outline-variant" data-alt="A high-quality, brightly lit photograph showing the logo and branding of a modern collegiate cafe named 'The Healthy Bear Cafe'. The setting is clean, minimal, and inviting, utilizing a color palette of crisp whites, subtle grays, and vibrant green accents to match the minimalist, student-friendly 'Ursine Fresh' design system. The lighting is soft and natural, creating a fresh and appetizing atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKFu99JedBff5QRQNIgXhAFB4I1XO-5mX9BnjGltRtkaSvUZcvp0HmaoVK8-t38L32Ld5EWPvbj7wyOaE0nVo7O9AjIZz2n5SPaPTgu4iO2De7hiukaQolvqvS2cMjxFmVRFY-WZzZNmALPt2P5sIMoZ0KaRT3mFe56xVX8-xTcyIP75V0SWACVT1vs6ECCfpLP9vGuo6QbGSEkEETtN0IJ4RCs_LvlhvKebJULEFb_80x8rK07uyF-fsiHYeTlE-CcBtte6Kprkg"/>
 </div>
 <!-- Categories / Chips -->
-<div class="flex overflow-x-auto gap-sm pb-sm mb-xl no-scrollbar">
-<button class="flex-shrink-0 bg-on-surface text-surface rounded-full px-4 py-2 text-label-bold font-label-bold">Popular Items</button>
-<button class="flex-shrink-0 bg-surface-container text-on-surface-variant rounded-full px-4 py-2 text-label-bold font-label-bold border border-outline-variant">Meals</button>
-<button class="flex-shrink-0 bg-surface-container text-on-surface-variant rounded-full px-4 py-2 text-label-bold font-label-bold border border-outline-variant">Quick Snacks</button>
+<div class="flex overflow-x-auto gap-sm pb-sm mb-xl no-scrollbar" data-filter-group>
+<button class="flex-shrink-0 bg-on-surface text-surface rounded-full px-4 py-2 text-label-bold font-label-bold" data-filter="all" type="button">Popular Items</button>
+<button class="flex-shrink-0 bg-surface-container text-on-surface-variant rounded-full px-4 py-2 text-label-bold font-label-bold border border-outline-variant" data-filter="meals" type="button">Meals</button>
+<button class="flex-shrink-0 bg-surface-container text-on-surface-variant rounded-full px-4 py-2 text-label-bold font-label-bold border border-outline-variant" data-filter="snacks" type="button">Quick Snacks</button>
 </div>
 <!-- Menu Grid -->
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md">
 <!-- Product Card: Panini -->
-<div class="bg-surface rounded-xl border border-surface-variant overflow-hidden flex flex-col hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow">
+<div class="bg-surface rounded-xl border border-surface-variant overflow-hidden flex flex-col hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow" data-categories="popular meals">
 <div class="h-40 bg-surface-container-high relative">
 <img alt="Panini" class="w-full h-full object-cover" data-alt="A mouth-watering, close-up photograph of a freshly toasted panini sandwich cut in half, revealing melted cheese and fresh fillings. The panini rests on a clean, modern white plate against a light, minimalist background. The lighting is bright and appetizing, consistent with a clean, student-friendly cafe environment. The overall tone is fresh, vibrant, and highly appealing, emphasizing the quality of the food." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQl6eJ5_2jpO9r5PC5XEmF7bf3udQu8OfEAMuJGzx5Uk9t8o6OnVFjjR7xFtblRH9ddUUSWl-67sFLXPNn6xB43i7OBrpDXwrO_6_AHxySpvXMAegx5oMu_JxqXchQMVbV8w_ltFT-t4zGhxAqkaAdiBcJz3gbLd8MQaMGNaVFc5RdKhrT7Zdfp14pAqe79H5tR_vbqVDuBrOkw0paNrtrJJW7RuRr23d6xsyVppH03VH6VxMrhB2FWOjRko1fUy0VA-uEm9oZUQk"/>
 </div>
@@ -206,12 +206,12 @@
 <p class="text-body-sm font-body-sm text-on-surface-variant mb-md flex-grow">Freshly toasted with your choice of fillings.</p>
 <div class="flex justify-between items-center mt-auto">
 <span class="text-label-bold font-label-bold text-primary">R30</span>
-<button class="bg-primary text-on-primary rounded-full px-4 py-2 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center">Add to Cart</button>
+<button class="bg-primary text-on-primary rounded-full px-4 py-2 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center" data-action="add-to-cart" data-id="panini" data-name="Panini" data-price="30" type="button">Add to Cart</button>
 </div>
 </div>
 </div>
 <!-- Product Card: Hot Chips -->
-<div class="bg-surface rounded-xl border border-surface-variant overflow-hidden flex flex-col hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow">
+<div class="bg-surface rounded-xl border border-surface-variant overflow-hidden flex flex-col hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow" data-categories="popular snacks">
 <div class="h-40 bg-surface-container-high relative">
 <img alt="Hot Chips" class="w-full h-full object-cover" data-alt="A top-down, high-resolution photo of a generous portion of golden, crispy hot chips served in a simple, modern white bowl or paper cone. The setting is clean and minimalist, with a bright, airy lighting setup that highlights the texture of the chips. The background is a soft, neutral tone, ensuring the focus remains entirely on the appealing snack, fitting perfectly into a clean, contemporary cafe aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6gLggtd1YOWQfp7drQ0B3u8xsW3LeLrNisH7Cdc5_uvQnJO9ZwrbHYp_U7aHtIVMR10I1p8oeMQryKV2chEUlukYj4fcWazjn-_NS9kjGzD6k2-0Bqwvq36az8c27NU9r11YlUrSxXeN6FVXKaj94WUBHYdG-9C-6h5xi0sqoTZSpEEsHklMzNNZyj-dAx_Eh-BCmXBxaDX8BTMRWLDrfuKI0uphF0h0QpKpqZN4Aa7GIdMYdKFPHDfwYemKPLXf_oaLezjdH52s"/>
 </div>
@@ -223,12 +223,12 @@
 <span class="text-label-bold font-label-bold text-primary">S: R25</span>
 <span class="text-label-bold font-label-bold text-primary">L: R35</span>
 </div>
-<button class="bg-primary text-on-primary rounded-full px-4 py-2 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center">Add to Cart</button>
+<button class="bg-primary text-on-primary rounded-full px-4 py-2 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center" data-action="add-to-cart" data-id="hot-chips-large" data-name="Hot Chips" data-price="35" type="button">Add to Cart</button>
 </div>
 </div>
 </div>
 <!-- Product Card: Wings + Chips -->
-<div class="bg-surface rounded-xl border border-surface-variant overflow-hidden flex flex-col hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow">
+<div class="bg-surface rounded-xl border border-surface-variant overflow-hidden flex flex-col hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow" data-categories="popular meals">
 <div class="h-40 bg-surface-container-high relative">
 <img alt="Wings + Chips" class="w-full h-full object-cover" data-alt="A close-up, appetizing shot of crispy fried chicken wings served alongside a portion of golden hot chips on a clean, modern plate. The lighting is bright and inviting, casting soft shadows that emphasize the crunchy texture of the wings and fries. The background is minimal and uncluttered, adhering to a fresh, student-friendly cafe aesthetic with subtle hints of green in the styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANVTUa1FK1eX9j2saxp9act3W7XI82BwBWCdtoZuNDG2F0tA5gM7ztfi_vjXBczlDSRj5Wzt9ka2S4PTE2YEEjSlVdJujSqDAwAduweEZgAKOrBHcHwseEmsj9p52CdPcCcSmi3FDvF_uG76hZ0y46vVDBiw-8lLFmc9YDj2g5ALnCKCexBqBMmVql_r6OF7keEnAr_T_ZYKMapfchpeE-LqxplDoDqiDAdQ6Kn_He8x7L7acCFhQL6op-P7A8eKULm0y7mg6ZVXc"/>
 </div>
@@ -237,12 +237,12 @@
 <p class="text-body-sm font-body-sm text-on-surface-variant mb-md flex-grow">Crispy wings served with a side of hot chips.</p>
 <div class="flex justify-between items-center mt-auto">
 <span class="text-label-bold font-label-bold text-primary">R40</span>
-<button class="bg-primary text-on-primary rounded-full px-4 py-2 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center">Add to Cart</button>
+<button class="bg-primary text-on-primary rounded-full px-4 py-2 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center" data-action="add-to-cart" data-id="wings-chips" data-name="Wings + Chips" data-price="40" type="button">Add to Cart</button>
 </div>
 </div>
 </div>
 <!-- Product Card: Boerewors -->
-<div class="bg-surface rounded-xl border border-surface-variant overflow-hidden flex flex-col hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow">
+<div class="bg-surface rounded-xl border border-surface-variant overflow-hidden flex flex-col hover:shadow-[0px_4px_12px_rgba(0,0,0,0.05)] transition-shadow" data-categories="popular meals">
 <div class="h-40 bg-surface-container-high relative">
 <img alt="Boerewors" class="w-full h-full object-cover" data-alt="A high-quality food photograph of a freshly grilled Boerewors roll, served in a soft bun with minimalistic garnishes. The setting is clean and modern, lit with bright, natural-looking light that highlights the juiciness of the sausage. The composition is simple, set against a neutral, light-colored background to align with a fresh, contemporary cafe brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkQxSylqc_1RBG3tSoK-8Iz-YyxWJj-L54j60y-XOY16d-inohhCmCPKO1ym2T7x-iEbbSYj5U9xQG--Na5fVA8DavRj9s5mYmBARW9mKbUbUVSuScE2KuXJpzvnSw6q34bCBl0l21JmkOyPLmPcpTj5bMGM6rxGRP-jSTTqtqByoXWmuFU_jmehy2H_t5RQ-TF1RBO5COWEdj0dWf1Pd1CM3J6D8d59MlvsdrVUz5LrrvmAcFsP6E6pbjs74UWwbF4ybYEEPfZ-g"/>
 </div>
@@ -251,21 +251,21 @@
 <p class="text-body-sm font-body-sm text-on-surface-variant mb-md flex-grow">Traditional South African sausage on a roll.</p>
 <div class="flex justify-between items-center mt-auto">
 <span class="text-label-bold font-label-bold text-primary">R25</span>
-<button class="bg-primary text-on-primary rounded-full px-4 py-2 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center">Add to Cart</button>
+<button class="bg-primary text-on-primary rounded-full px-4 py-2 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center" data-action="add-to-cart" data-id="boerewors-roll" data-name="Boerewors" data-price="25" type="button">Add to Cart</button>
 </div>
 </div>
 </div>
 </div>
 </main>
 <!-- Persistent Bottom Bar (Cart Checkout) -->
-<div class="fixed bottom-[72px] left-0 w-full px-margin-mobile md:px-margin-desktop z-40">
+<div class="fixed bottom-[72px] left-0 w-full px-margin-mobile md:px-margin-desktop z-40" id="cart-bar">
 <div class="max-w-[1200px] mx-auto">
 <div class="bg-surface border border-outline-variant rounded-xl shadow-lg p-md flex justify-between items-center">
 <div class="flex flex-col">
-<span class="text-body-sm font-body-sm text-on-surface-variant">Cart (2 items)</span>
-<span class="text-headline-sm font-headline-sm text-on-surface font-bold">R65</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant" id="cart-count-label">Cart (0 items)</span>
+<span class="text-headline-sm font-headline-sm text-on-surface font-bold" id="cart-total-label">R0</span>
 </div>
-<button class="bg-primary text-on-primary rounded-lg px-6 py-3 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center gap-2">
+<button class="bg-primary text-on-primary rounded-lg px-6 py-3 text-label-bold font-label-bold min-h-[48px] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed" data-action="checkout" data-href="../checkout_order_summary/code.html" type="button">
 <span>Checkout</span>
 <span class="material-symbols-outlined" data-icon="chevron_right" style="font-variation-settings: 'FILL' 0;">chevron_right</span>
 </button>
@@ -274,15 +274,15 @@
 </div>
 <!-- BottomNavBar -->
 <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface dark:bg-inverse-surface border-t border-outline-variant dark:border-outline md:hidden rounded-t-xl shadow-sm">
-<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 scale-95 transition-transform duration-200" href="#">
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 scale-95 transition-transform duration-200" href="../menu_the_healthy_bear_cafe/code.html">
 <span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
 <span class="text-label-sm font-label-sm mt-1">Menu</span>
 </a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-container dark:hover:bg-on-surface-variant rounded-full" href="#">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-container dark:hover:bg-on-surface-variant rounded-full" href="../checkout_order_summary/code.html">
 <span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
 <span class="text-label-sm font-label-sm mt-1">Cart</span>
 </a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-container dark:hover:bg-on-surface-variant rounded-full" href="#">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-container dark:hover:bg-on-surface-variant rounded-full" href="../order_status_track_your_meal/code.html">
 <span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
 <span class="text-label-sm font-label-sm mt-1">Orders</span>
 </a>
@@ -301,4 +301,5 @@
             scrollbar-width: none;  /* Firefox */
         }
     </style>
+<script src="../app.js"></script>
 </body></html>

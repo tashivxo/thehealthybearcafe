@@ -118,7 +118,7 @@
 <body class="antialiased min-h-screen flex flex-col items-center">
 <!-- TopAppBar -->
 <header class="w-full bg-surface text-primary border-b border-outline-variant flex justify-between items-center px-margin-mobile md:px-margin-desktop h-14 fixed top-0 z-50">
-<button aria-label="Go back" class="text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors">
+<button aria-label="Go back" class="text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors" id="back-button" type="button">
 <span class="material-symbols-outlined">arrow_back</span>
 </button>
 <div class="text-headline-sm-mobile font-headline-sm font-bold text-primary truncate mx-4">
@@ -131,22 +131,11 @@
 <!-- Order Summary -->
 <section class="flex flex-col gap-md">
 <h2 class="text-headline-sm font-headline-sm text-on-surface">Order Summary</h2>
-<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-sm">
-<div class="flex justify-between items-center py-2 border-b border-surface-variant">
-<div class="flex flex-col">
-<span class="text-body-lg font-body-lg text-on-surface">1x Panini</span>
-</div>
-<span class="text-label-bold font-label-bold text-primary">R30.00</span>
-</div>
-<div class="flex justify-between items-center py-2 border-b border-surface-variant">
-<div class="flex flex-col">
-<span class="text-body-lg font-body-lg text-on-surface">1x Large Hot Chips</span>
-</div>
-<span class="text-label-bold font-label-bold text-primary">R35.00</span>
-</div>
-<div class="flex justify-between items-center pt-2 mt-2">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col gap-sm" id="order-summary-card">
+<div class="flex flex-col gap-sm" id="order-summary-items"></div>
+<div class="flex justify-between items-center pt-2 mt-2 border-t border-surface-variant" id="subtotal-row">
 <span class="text-headline-sm font-headline-sm text-on-surface">Subtotal</span>
-<span class="text-headline-sm font-headline-sm text-primary">R65.00</span>
+<span class="text-headline-sm font-headline-sm text-primary" id="subtotal-amount">R0.00</span>
 </div>
 </div>
 </section>
@@ -204,11 +193,90 @@
 <div class="w-full max-w-[600px] flex justify-between items-center gap-md">
 <div class="flex flex-col">
 <span class="text-label-sm font-label-sm text-on-surface-variant">Total</span>
-<span class="text-headline-md font-headline-md text-primary">R65.00</span>
+<span class="text-headline-md font-headline-md text-primary" id="total-amount">R0.00</span>
 </div>
-<button class="bg-primary hover:bg-surface-tint text-on-primary text-headline-sm font-headline-sm py-3 px-8 rounded-full min-h-[48px] flex-1 transition-colors">
+<button class="bg-primary hover:bg-surface-tint text-on-primary text-headline-sm font-headline-sm py-3 px-8 rounded-full min-h-[48px] flex-1 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" id="place-order-button" type="button">
                 Place Order
             </button>
 </div>
 </div>
+<script>
+    const CART_KEY = 'thbc_cart_v1';
+    const ORDER_KEY = 'thbc_last_order_v1';
+
+    function loadCart() {
+        try {
+            return JSON.parse(localStorage.getItem(CART_KEY)) || {};
+        } catch {
+            return {};
+        }
+    }
+
+    function formatCurrency(amount) {
+        return `R${amount.toFixed(2)}`;
+    }
+
+    function renderOrderSummary() {
+        const cart = loadCart();
+        const items = Object.values(cart);
+        const itemsContainer = document.getElementById('order-summary-items');
+        const subtotalAmount = document.getElementById('subtotal-amount');
+        const totalAmount = document.getElementById('total-amount');
+        const placeOrderButton = document.getElementById('place-order-button');
+
+        if (!items.length) {
+            itemsContainer.innerHTML = `
+<div class="rounded-lg bg-surface-container p-md text-body-lg font-body-lg text-on-surface-variant">
+    Your cart is empty. Add something from the menu before checking out.
+</div>`;
+            subtotalAmount.textContent = formatCurrency(0);
+            totalAmount.textContent = formatCurrency(0);
+            placeOrderButton.disabled = true;
+            return;
+        }
+
+        const subtotal = items.reduce((sum, item) => sum + item.price * item.qty, 0);
+        itemsContainer.innerHTML = items.map((item, index) => `
+<div class="flex justify-between items-center py-2 ${index < items.length - 1 ? 'border-b border-surface-variant' : ''}">
+    <div class="flex flex-col">
+        <span class="text-body-lg font-body-lg text-on-surface">${item.qty}x ${item.name}</span>
+    </div>
+    <span class="text-label-bold font-label-bold text-primary">${formatCurrency(item.price * item.qty)}</span>
+</div>`).join('');
+        subtotalAmount.textContent = formatCurrency(subtotal);
+        totalAmount.textContent = formatCurrency(subtotal);
+        placeOrderButton.disabled = false;
+    }
+
+    document.getElementById('back-button').addEventListener('click', () => {
+        if (window.history.length > 1) {
+            window.history.back();
+            return;
+        }
+
+        window.location.href = '../menu_the_healthy_bear_cafe/code.html';
+    });
+
+    document.getElementById('place-order-button').addEventListener('click', () => {
+        const items = Object.values(loadCart());
+        if (!items.length) {
+            return;
+        }
+
+        const subtotal = items.reduce((sum, item) => sum + item.price * item.qty, 0);
+        const order = {
+            orderNumber: `#HB-${String(Date.now()).slice(-4)}`,
+            etaMinutes: 15,
+            total: subtotal,
+            items,
+            createdAt: new Date().toISOString()
+        };
+
+        localStorage.setItem(ORDER_KEY, JSON.stringify(order));
+        localStorage.removeItem(CART_KEY);
+        window.location.href = '../order_status_track_your_meal/code.html';
+    });
+
+    renderOrderSummary();
+</script>
 </body></html>
